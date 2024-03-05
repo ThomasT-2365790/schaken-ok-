@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bord.cpp" />
+    <ClCompile Include="cord.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bord.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="cord.h" />
+    <ClInclude Include="pion.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -127,9 +139,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

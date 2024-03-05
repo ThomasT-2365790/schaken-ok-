@@ -1,5 +1,12 @@
-int main() {
-	//thomas is hier
-	//Arne is hier niet :)
-	return 0;
+#include "bord.h"
+
+void main() {
+	bord spelbord;
+	spelbord.printbord();
+	int teller=4
+
+
+
+
+
 }
