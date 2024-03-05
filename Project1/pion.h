@@ -7,11 +7,11 @@ class pion {
 
 public:
 	pion(color kleur, cord coord); //constructor
-	char getcolor();
+	color getcolor();
 	void movepion(cord nieuw);
-	std::tupl getcord();
+	cord getcord();
 
 private:
-	color color;
+	color collor;
 	cord coordinaat;
 };

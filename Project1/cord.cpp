@@ -10,8 +10,8 @@ void cord::update_cord(int _kolom, int _rij)
 	rij = _rij;
 }
 
-std::tuple cord::getcord() {
+std::tuple<int,int> cord::getcord() {
 
-	return std::tuple(kolom, rij)
+	return std::tuple<int, int>(kolom, rij);
 
 }

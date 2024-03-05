@@ -1,23 +1,23 @@
 #include "bord.h"
+#include "cord.h"
 #include <iostream>
 #include <vector>
 
 bord::bord()
 {
-	pion p{ color('W'), cord(1, 2) };
-	setpion(p);
+	setpion(pion{ color('W'), cord(1, 2) });
 }
 
 void bord::printbord()
 {
 	for (pion pionw : whitepions)
 	{
-		std::cout << 'W' << getcord() << std::endl
+		std::cout << 'W' << "pionw.getcord()" << std::endl;
 
 	}
-	for (pionb : blackpions)
+	for (pion pionb : blackpions)
 	{
-		std::cout << 'B' << getcord() << std::endl
+		std::cout << 'B' << "pionb.getcord()" << std::endl;
 
 	}
 }
