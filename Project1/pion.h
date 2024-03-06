@@ -9,8 +9,8 @@ public:
 	pion(color kleur, cord coord); //constructor
 	color getcolor();
 	void movepion(cord nieuw);
-	std::tuple<int,int> getcord();
-	bool covergelijker(std::tuple<int, int> self, std::tuple<int, int> other);
+	cord getcord();
+	bool covergelijker(cord self,cord other);
 	void printpion();
 private:
 	color collor;
