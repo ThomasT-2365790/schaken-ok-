@@ -40,7 +40,7 @@ void bord::setpion(pion p) {
 void bord::playw(cord nu, cord nieuw) {
 	for (pion pionwit : whitepions)
 	{
-		if (pionwit.covergelijker(pionwit.getcord(), nu.getcord())) {
+		if (pionwit.covergelijker(pionwit, nu.getcord())) {
 			pionwit.movepion(nieuw);
 			break;
 

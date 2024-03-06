@@ -1,16 +1,20 @@
 #include "cord.h"
 #include <tuple>
 
-cord::cord(int _kolom, int _rij) :cordinaat{_kolom,_rij} {}
+cord::cord(int _kolom, int _rij) :rij{ _rij }, kolom{ _kolom } {}
 
 
 void cord::update_cord(int _kolom, int _rij)
 {
-	cordinaat = { _kolom,_rij };
+	rij = _rij;
+	kolom = _kolom;
 }
 
-std::tuple<int,int> cord::getcord() {
+int cord::getkolom() {
 
-	return cordinaat;
+	return kolom;
+}
+int cord::getrij() {
 
+	return rij;
 }
