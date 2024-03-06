@@ -9,7 +9,7 @@ color pion::getcolor()
 	return collor;
 }
 
-void pion::movepion(cord nieuw)
+void pion::movepion(cord& nieuw)
 {
 	coordinaat=nieuw;
 }

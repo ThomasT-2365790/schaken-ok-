@@ -7,6 +7,8 @@
 bord::bord()
 {
 	setpion(pion{ color::W, cord(1, 2) });
+	setpion(pion{ color::W, cord(1, 3) });
+	setpion(pion{ color::W, cord(1, 4) });
 }
 
 void bord::printbord()
