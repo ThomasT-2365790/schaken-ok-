@@ -2,55 +2,48 @@
 #include "cord.h"
 #include <iostream>
 #include <vector>
+#include "color.h"
+#include <tuple>
 
 bord::bord()
 {
-	setpion(pion{ color('W'), cord(1, 2) });
+	setpion(pion{ color::W, cord(1, 2) });
 }
 
 void bord::printbord()
 {
 	for (pion pionw : whitepions)
 	{
-		std::cout << 'W' << "pionw.getcord()" << std::endl;
+		std::cout << "W ";
+		pionw.printpion();
 
 	}
 	for (pion pionb : blackpions)
 	{
-		std::cout << 'B' << "pionb.getcord()" << std::endl;
+		std::cout << "B ";
+		pionb.printpion();
 
 	}
 }
 
 void bord::setpion(pion p) {
 
-	if (p.getcolor() == 'W') {
+	if (p.getcolor() == color::W) {
 		whitepions.push_back(p);
 	}
-	else {
+	else if(p.getcolor() == color::B){
 		blackpions.push_back(p);
 	}
 
 }
 
-void playw(cord nu, cord nieuw) {
-	for (pion p : whitepions)
+void bord::playw(cord nu, cord nieuw) {
+	for (pion pionwit : whitepions)
 	{
-		if (p.getcord == nu.getcord)
-		{
-			p.movepion(cord nieuw)
+		if (pionwit.covergelijker(pionwit.getcord(), nu.getcord())) {
+			pionwit.movepion(nieuw);
+			break;
+
 		}
-
-	}
-}
-
-void playb(cord nu, cord nieuw) {
-	for (pion p : blackpions)
-	{
-		if (p.getcord == nu.getcord)
-		{
-			p.movepion(cord nieuw)
-		}
-
 	}
 }
