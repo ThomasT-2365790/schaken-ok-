@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include "color.h"
-#include <tuple>
 
 bord::bord()
 {
@@ -40,7 +39,7 @@ void bord::setpion(pion p) {
 void bord::playw(cord nu, cord nieuw) {
 	for (pion pionwit : whitepions)
 	{
-		if (pionwit.covergelijker(pionwit, nu.getcord())) {
+		if (pionwit.covergelijker(pionwit.getcord(),nu)) {
 			pionwit.movepion(nieuw);
 			break;
 

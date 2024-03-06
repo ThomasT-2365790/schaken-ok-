@@ -1,5 +1,4 @@
 #pragma once
-#include <tuple>
 class cord {
 
 public:

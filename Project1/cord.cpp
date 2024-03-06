@@ -1,7 +1,6 @@
 #include "cord.h"
-#include <tuple>
 
-cord::cord(int _kolom, int _rij) :rij{ _rij }, kolom{ _kolom } {}
+cord::cord(int _rij, int _kolom) :rij{ _rij }, kolom{ _kolom } {}
 
 
 void cord::update_cord(int _kolom, int _rij)

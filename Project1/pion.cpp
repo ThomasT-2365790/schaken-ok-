@@ -20,7 +20,7 @@ cord pion::getcord()
 }
 
 bool pion::covergelijker(cord self, cord other) {
-	if (self.getkolom() == other.getkolom() {
+	if (self.getkolom() == other.getkolom()) {
 		if (self.getrij() == other.getkolom()) {
 			return 1;
 		}
@@ -28,6 +28,6 @@ bool pion::covergelijker(cord self, cord other) {
 }
 
 void pion::printpion() {
-    std::cout << "(" << std::get<0>(coordinaat.getcord()) << ", " << std::get<1>(coordinaat.getcord()) << ")" << std::endl;
+    std::cout << "(" << coordinaat.getrij() << ',' << coordinaat.getkolom() << ")" << std::endl;
 
 }

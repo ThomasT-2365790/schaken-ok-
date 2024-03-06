@@ -3,7 +3,7 @@
 #include "pion.h"
 
 class bord {
-
+	
 public:
 	bord();
 	void printbord();

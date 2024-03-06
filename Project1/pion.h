@@ -1,7 +1,6 @@
 #pragma once
 #include "cord.h"
 #include "color.h"
-#include <tuple>
 
 class pion {
 
