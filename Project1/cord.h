@@ -2,12 +2,12 @@
 class cord {
 
 public:
-	cord(int _kolom, int _rij);
-	void update_cord(int kolom, int rij);
+	cord(int _rij, int _kolom);
+	void update_cord(int rij, int kolom);
 	int getkolom();
 	int getrij();
 
 private:
-	int kolom;
 	int rij;
+	int kolom;
 };

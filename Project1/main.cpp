@@ -1,11 +1,12 @@
 #include "bord.h"
 #include <iostream>
 
-void main() {
+int main() {
 	bord spelbord;
 	spelbord.printbord();
 	std::cout << std::endl;
-	spelbord.playw(cord(1, 2), cord(5, 5));
+	spelbord.playw(cord(2, 1), cord(5, 5));
 
 	spelbord.printbord();
+	return 0;
 }

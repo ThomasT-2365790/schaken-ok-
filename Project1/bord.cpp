@@ -6,14 +6,14 @@
 
 bord::bord()
 {
-	setpion(pion{ color::W, cord(1, 1) });
-	setpion(pion{ color::W, cord(1, 2) });
-	setpion(pion{ color::W, cord(1, 3) });
-	setpion(pion{ color::W, cord(1, 4) });
-	setpion(pion{ color::W, cord(1, 5) });
-	setpion(pion{ color::W, cord(1, 6) });
-	setpion(pion{ color::W, cord(1, 7) });
-	setpion(pion{ color::W, cord(1, 8) });
+	setpion(pion{ color::W, cord(2, 1) });
+	setpion(pion{ color::W, cord(2, 2) });
+	setpion(pion{ color::W, cord(2, 3) });
+	setpion(pion{ color::W, cord(2, 4) });
+	setpion(pion{ color::W, cord(2, 5) });
+	setpion(pion{ color::W, cord(2, 6) });
+	setpion(pion{ color::W, cord(2, 7) });
+	setpion(pion{ color::W, cord(2, 8) });
 
 	setpion(pion{ color::B, cord(7, 1) });
 	setpion(pion{ color::B, cord(7, 2) });
@@ -26,10 +26,67 @@ bord::bord()
 
 
 }
+bool bord::coordinaatvergelijker_inbord(cord a, cord b)
+{
+	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
+	{
+		return true;
+	}
+	return false;
 
+}
+cord bord::isPionAt(cord c) {
+	for (pion pw : whitepions) {
+		if (coordinaatvergelijker_inbord(pw.getcord(),c )) {
+			return pw.getcord(); // Coördinaat gevonden
+		}
+	}
+	for (pion& pb : blackpions) {
+		if (coordinaatvergelijker_inbord(pb.getcord(), c)) {
+			return pb.getcord(); // Coördinaat gevonden
+		}
+	}
+	return cord(0,0); // Coördinaat niet gevonden
+}
+
+color bord::geefkleurvanco(cord a) {
+	for (pion pw : whitepions) {
+		if (coordinaatvergelijker_inbord(pw.getcord(), a)) {
+			return color::W; // Coördinaat gevonden
+		}
+		
+	}
+	return color::B;
+}
 void bord::printbord()
 {
-	for (pion pionw : whitepions)
+	
+	int tellerrand = 8;
+	for (int verticaal = 8;verticaal >= 1;--verticaal)
+	{
+		std::cout << tellerrand;
+		--tellerrand;
+		for (int horizontaal=1;horizontaal<=8;++horizontaal)
+			if (coordinaatvergelijker_inbord(isPionAt(cord(verticaal, horizontaal)), cord(0, 0)))
+			{
+				std::cout << " - ";
+			}
+			else
+			{
+				color kleur = geefkleurvanco(cord(verticaal, horizontaal));
+				if (kleur == color::W)
+				{
+					std::cout << " W ";
+				}
+				else
+				{
+					std::cout << " B ";
+				}
+			}
+		std::cout << std::endl;
+	}
+	std::cout << "  A  B  C  D  E  F  G  H"<<std::endl << std::endl;
+	/*for (pion pionw : whitepions)
 	{
 		std::cout << "W ";
 		pionw.printpion();
@@ -40,7 +97,7 @@ void bord::printbord()
 		std::cout << "B ";
 		pionb.printpion();
 
-	}
+	}*/
 }
 
 void bord::setpion(pion p) {
@@ -58,7 +115,7 @@ void bord::playw(cord nu, cord nieuw) {
 	int teller = 0;
 	for (pion pionwit : whitepions)
 	{	
-		if (pionwit.covergelijker(pionwit.getcord(),nu)) {
+		if (coordinaatvergelijker_inbord(pionwit.getcord(),nu)) {
 			whitepions.erase(whitepions.begin()+teller);
 			pion pionnieuw(color::W, nieuw);
 			whitepions.push_back(pionnieuw);
@@ -73,7 +130,7 @@ void bord::playb(cord nu, cord nieuw) {
 	int teller = 0;
 	for (pion pionwit : blackpions)
 	{
-		if (pionwit.covergelijker(pionwit.getcord(), nu)) {
+		if (coordinaatvergelijker_inbord(pionwit.getcord(), nu)) {
 			blackpions.erase(whitepions.begin() + teller);
 			pion pionnieuw(color::B, nieuw);
 			whitepions.push_back(pionnieuw);
