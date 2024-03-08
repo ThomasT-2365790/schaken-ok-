@@ -19,13 +19,6 @@ cord pion::getcord()
 	return coordinaat;
 }
 
-bool pion::covergelijker(cord self, cord other) {
-	if (self.getkolom() == other.getkolom()) {
-		if (self.getrij() == other.getkolom()) {
-			return 1;
-		}
-	}
-}
 
 void pion::printpion() {
     std::cout << "(" << coordinaat.getrij() << ',' << coordinaat.getkolom() << ")" << std::endl;
