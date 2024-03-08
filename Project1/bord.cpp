@@ -111,32 +111,29 @@ void bord::setpion(pion p) {
 
 }
 
-void bord::playw(cord nu, cord nieuw) {
-	int teller = 0;
+void bord::play(cord nu, cord nieuw) {
+	int tellerw = 0;
 	for (pion pionwit : whitepions)
 	{	
 		if (coordinaatvergelijker_inbord(pionwit.getcord(),nu)) {
-			whitepions.erase(whitepions.begin()+teller);
+			whitepions.erase(whitepions.begin()+tellerw);
 			pion pionnieuw(color::W, nieuw);
 			whitepions.push_back(pionnieuw);
-			break;
+			return;
 
 		}
-		++teller;
+		++tellerw;
 	}
-}
-
-void bord::playb(cord nu, cord nieuw) {
-	int teller = 0;
+	int tellerb = 0;
 	for (pion pionwit : blackpions)
 	{
 		if (coordinaatvergelijker_inbord(pionwit.getcord(), nu)) {
-			blackpions.erase(whitepions.begin() + teller);
+			blackpions.erase(blackpions.begin() + tellerb);
 			pion pionnieuw(color::B, nieuw);
-			whitepions.push_back(pionnieuw);
-			break;
+			blackpions.push_back(pionnieuw);
+			return;
 
 		}
-		++teller;
+		++tellerb;
 	}
 }
