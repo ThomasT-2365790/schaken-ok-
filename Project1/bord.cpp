@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "color.h"
+#include <string>
 
 bord::bord()
 {
@@ -60,7 +61,9 @@ color bord::geefkleurvanco(cord a) {
 }
 void bord::printbord()
 {
-	
+	const std::string RESET_COLOR = "\033[0m";
+	const std::string RED_COLOR = "\033[31m";
+	const std::string GREEN_COLOR= "\033[32m";
 	int tellerrand = 8;
 	for (int verticaal = 8;verticaal >= 1;--verticaal)
 	{
@@ -76,11 +79,11 @@ void bord::printbord()
 				color kleur = geefkleurvanco(cord(verticaal, horizontaal));
 				if (kleur == color::W)
 				{
-					std::cout << " W ";
+					std::cout <<GREEN_COLOR<< " W "<<RESET_COLOR;
 				}
 				else
 				{
-					std::cout << " B ";
+					std::cout << RED_COLOR << " B " << RESET_COLOR;
 				}
 			}
 		std::cout << std::endl;

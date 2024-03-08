@@ -24,6 +24,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stuk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pion.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
     <ClCompile Include="pion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,7 +44,7 @@
     <ClInclude Include="cord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pion.h">
+    <ClInclude Include="stuk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
