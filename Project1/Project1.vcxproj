@@ -30,6 +30,9 @@
     <ClInclude Include="cord.h" />
     <ClInclude Include="pion.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="idee.md" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
