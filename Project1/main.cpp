@@ -40,7 +40,8 @@ int char_to_int(char letter)
 int main() {
 	std::cout << "startspel\n";
 	bord spelbord;
-	while (true)
+    int teller_kleur = 0;
+	while (teller_kleur<100)
 	{
 		spelbord.printbord();
 		char letternu;
@@ -48,10 +49,30 @@ int main() {
 		char letternieuw;
 		int cijfernieuw;
 
+        if (teller_kleur % 2 == 0)
+        {
+            std::cout << "play white\n";
+        }
+        else
+        {
+            std::cout << "play black\n";
+        }
 		std::cout << "van: ";
 		std::cin >> letternu>> cijfernu;
 		int lettergoednu =char_to_int(letternu);
 		cord nu{ cijfernu,lettergoednu };
+        if (spelbord.geefkleurvanco(nu) == color::W)
+        {
+            if (teller_kleur % 2 != 0)
+                std::cout << "opnieuw, black is aan de beurt\n";
+                break;
+        }
+        if (spelbord.geefkleurvanco(nu) == color::B)
+        {
+            if (teller_kleur % 2 == 0)
+                std::cout << "opnieuw, white is aan de beurt\n";
+            break;
+        }
 
 		std::cout << "naar: ";
 		std::cin >> letternieuw >> cijfernieuw;
@@ -59,6 +80,8 @@ int main() {
 		cord nieuw{ cijfernieuw,lettergoednieuw };
 
 		spelbord.play(nu, nieuw);
+        ++teller_kleur;
+
 	}
 	
 	
