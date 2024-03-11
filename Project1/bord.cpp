@@ -7,23 +7,23 @@
 
 bord::bord()
 {
-	setpion(pion{ color::W, cord(2, 1) });
-	setpion(pion{ color::W, cord(2, 2) });
-	setpion(pion{ color::W, cord(2, 3) });
-	setpion(pion{ color::W, cord(2, 4) });
-	setpion(pion{ color::W, cord(2, 5) });
-	setpion(pion{ color::W, cord(2, 6) });
-	setpion(pion{ color::W, cord(2, 7) });
-	setpion(pion{ color::W, cord(2, 8) });
+	setpion(pawn{ color::W, cord(2, 1) });
+	setpion(pawn{ color::W, cord(2, 2) });
+	setpion(pawn{ color::W, cord(2, 3) });
+	setpion(pawn{ color::W, cord(2, 4) });
+	setpion(pawn{ color::W, cord(2, 5) });
+	setpion(pawn{ color::W, cord(2, 6) });
+	setpion(pawn{ color::W, cord(2, 7) });
+	setpion(pawn{ color::W, cord(2, 8) });
 
-	setpion(pion{ color::B, cord(7, 1) });
-	setpion(pion{ color::B, cord(7, 2) });
-	setpion(pion{ color::B, cord(7, 3) });
-	setpion(pion{ color::B, cord(7, 4) });
-	setpion(pion{ color::B, cord(7, 5) });
-	setpion(pion{ color::B, cord(7, 6) });
-	setpion(pion{ color::B, cord(7, 7) });
-	setpion(pion{ color::B, cord(7, 8) });
+	setpion(pawn{ color::B, cord(7, 1) });
+	setpion(pawn{ color::B, cord(7, 2) });
+	setpion(pawn{ color::B, cord(7, 3) });
+	setpion(pawn{ color::B, cord(7, 4) });
+	setpion(pawn{ color::B, cord(7, 5) });
+	setpion(pawn{ color::B, cord(7, 6) });
+	setpion(pawn{ color::B, cord(7, 7) });
+	setpion(pawn{ color::B, cord(7, 8) });
 
 
 }
@@ -37,12 +37,12 @@ bool bord::coordinaatvergelijker_inbord(cord a, cord b)
 
 }
 cord bord::isPionAt(cord c) {
-	for (pion pw : whitepions) {
+	for (pawn pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw.getcord(),c )) {
 			return pw.getcord(); // Coördinaat gevonden
 		}
 	}
-	for (pion& pb : blackpions) {
+	for (pawn& pb : blackpions) {
 		if (coordinaatvergelijker_inbord(pb.getcord(), c)) {
 			return pb.getcord(); // Coördinaat gevonden
 		}
@@ -51,7 +51,7 @@ cord bord::isPionAt(cord c) {
 }
 
 color bord::geefkleurvanco(cord a) {
-	for (pion pw : whitepions) {
+	for (pawn pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw.getcord(), a)) {
 			return color::W; // Coördinaat gevonden
 		}
@@ -103,7 +103,7 @@ void bord::printbord()
 	}*/
 }
 
-void bord::setpion(pion p) {
+void bord::setpion(pawn p) {
 
 	if (p.getcolor() == color::W) {
 		whitepions.push_back(p);
@@ -116,11 +116,11 @@ void bord::setpion(pion p) {
 
 void bord::play(cord nu, cord nieuw) {
 	int tellerw = 0;
-	for (pion pionwit : whitepions)
+	for (pawn pionwit : whitepions)
 	{	
 		if (coordinaatvergelijker_inbord(pionwit.getcord(),nu)) {
 			whitepions.erase(whitepions.begin()+tellerw);
-			pion pionnieuw(color::W, nieuw);
+			pawn pionnieuw(color::W, nieuw);
 			whitepions.push_back(pionnieuw);
 			return;
 
@@ -128,11 +128,11 @@ void bord::play(cord nu, cord nieuw) {
 		++tellerw;
 	}
 	int tellerb = 0;
-	for (pion pionwit : blackpions)
+	for (pawn pionwit : blackpions)
 	{
 		if (coordinaatvergelijker_inbord(pionwit.getcord(), nu)) {
 			blackpions.erase(blackpions.begin() + tellerb);
-			pion pionnieuw(color::B, nieuw);
+			pawn pionnieuw(color::B, nieuw);
 			blackpions.push_back(pionnieuw);
 			return;
 

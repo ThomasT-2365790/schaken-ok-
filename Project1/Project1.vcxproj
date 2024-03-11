@@ -22,13 +22,15 @@
     <ClCompile Include="bord.cpp" />
     <ClCompile Include="cord.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pion.cpp" />
+    <ClCompile Include="pawn.cpp" />
+    <ClCompile Include="stuk.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bord.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="cord.h" />
-    <ClInclude Include="pion.h" />
+    <ClInclude Include="pawn.h" />
+    <ClInclude Include="stuk.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="idee.md" />
