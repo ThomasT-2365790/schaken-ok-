@@ -64,14 +64,24 @@ int main() {
         if (spelbord.geefkleurvanco(nu) == color::W)
         {
             if (teller_kleur % 2 != 0)
+            {
                 std::cout << "opnieuw, black is aan de beurt\n";
-                break;
+                continue;
+            }
         }
         if (spelbord.geefkleurvanco(nu) == color::B)
         {
             if (teller_kleur % 2 == 0)
-                std::cout << "opnieuw, white is aan de beurt\n";
-            break;
+            {
+            
+            std::cout << "opnieuw, white is aan de beurt\n";
+            continue;
+            }
+        }
+        if (spelbord.coordinaatvergelijker_inbord(spelbord.isPionAt(nu), cord(0, 0)))
+        {
+            std::cout<<"hier staat geen stuk!\n";
+            continue;
         }
 
 		std::cout << "naar: ";

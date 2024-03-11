@@ -8,13 +8,15 @@ public:
 
 
 private:
-	kleur
-	positie
+	kleur van type color
+	positie van type cord
+
+
 
 
 afgeleide klasse pion:public stuk
 public:
-	constructor(kleur,pos(x,y) ------>constructor wordt doorgelust via cpp)
+	constructor(kleur,pos(x,y) ------>constructor wordt doorgelust via cpp en constructor van pion zet de mogelijke zetten in vector)
 	is_mog_beweeging(pos)
 
 
