@@ -60,7 +60,24 @@ int main() {
 		std::cout << "van: ";
 		std::cin >> letternu>> cijfernu;
 		int lettergoednu =char_to_int(letternu);
+
+
 		cord nu{ cijfernu,lettergoednu };
+        if (cijfernu<0 or cijfernu>8)
+        {
+            std::cout << "niet in de juiste rij!\n";
+            continue;
+        }
+        if (lettergoednu < 0 or lettergoednu>8)
+        {
+            std::cout << "niet in de juiste kolom!\n";
+            continue;
+        }
+        if (spelbord.coordinaatvergelijker_inbord(spelbord.isPionAt(nu), cord(0, 0)))
+        {
+            std::cout << "hier staat geen stuk!\n";
+            continue;
+        }
         if (spelbord.geefkleurvanco(nu) == color::W)
         {
             if (teller_kleur % 2 != 0)
@@ -78,16 +95,22 @@ int main() {
             continue;
             }
         }
-        if (spelbord.coordinaatvergelijker_inbord(spelbord.isPionAt(nu), cord(0, 0)))
-        {
-            std::cout<<"hier staat geen stuk!\n";
-            continue;
-        }
+       
 
 		std::cout << "naar: ";
 		std::cin >> letternieuw >> cijfernieuw;
 		int lettergoednieuw = char_to_int(letternieuw);
 		cord nieuw{ cijfernieuw,lettergoednieuw };
+        if (cijfernieuw < 0 or cijfernieuw>8)
+        {
+            std::cout << "niet in de juiste rij!\n";
+            continue;
+        }
+        if (lettergoednieuw < 0 or lettergoednieuw>8)
+        {
+            std::cout << "niet in de juiste kolom!\n";
+            continue;
+        }
 
 		spelbord.play(nu, nieuw);
         ++teller_kleur;
