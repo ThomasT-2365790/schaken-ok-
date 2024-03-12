@@ -31,6 +31,7 @@
     <ClInclude Include="cord.h" />
     <ClInclude Include="pawn.h" />
     <ClInclude Include="stuk.h" />
+    <ClInclude Include="what.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="idee.md" />

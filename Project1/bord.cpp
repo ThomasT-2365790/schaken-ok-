@@ -36,6 +36,29 @@ bool bord::coordinaatvergelijker_inbord(cord a, cord b)
 	return false;
 
 }
+void bord::printwhat(what a) {
+	switch (a)
+	{
+	case what::PAWN:
+		std::cout << " P ";
+		break;
+	case what::HORSE:
+		std::cout << " H ";
+		break;
+	case what::KING:
+		std::cout << " K ";
+		break;
+	case what::QUEEN:
+		std::cout << " Q ";
+		break;
+	case what::ROOK:
+		std::cout << " R ";
+		break;
+	case what::BISHOP:
+		std::cout << " B ";
+		break;
+	}
+}
 cord bord::isPionAt(cord c) {
 	for (pawn pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw.getcord(),c )) {
@@ -59,6 +82,19 @@ color bord::geefkleurvanco(cord a) {
 	}
 	return color::B;
 }
+what bord::geefstuk(cord a) {
+	for (stuk k : whitepions)
+	{
+		if (coordinaatvergelijker_inbord(k.getcord(), a))
+			return k.getwhat();
+	}
+	for (stuk k : blackpions)
+	{
+		if (coordinaatvergelijker_inbord(k.getcord(), a))
+			return k.getwhat();
+	}
+
+}
 void bord::printbord()
 {
 	const std::string RESET_COLOR = "\033[0m";
@@ -77,13 +113,18 @@ void bord::printbord()
 			else
 			{
 				color kleur = geefkleurvanco(cord(verticaal, horizontaal));
+				what waat = geefstuk(cord(verticaal, horizontaal));
 				if (kleur == color::W)
 				{
-					std::cout <<GREEN_COLOR<< " W "<<RESET_COLOR;
+					std::cout << GREEN_COLOR;
+					printwhat(waat);
+					std::cout <<RESET_COLOR;
 				}
 				else
 				{
-					std::cout << RED_COLOR << " B " << RESET_COLOR;
+					std::cout << RED_COLOR;
+					printwhat(waat);
+					std::cout << RESET_COLOR;
 				}
 			}
 		std::cout << std::endl;

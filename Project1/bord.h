@@ -12,6 +12,8 @@ public:
 	cord isPionAt(cord c);
 	bool coordinaatvergelijker_inbord(cord a, cord b);
 	color geefkleurvanco(cord a);
+	what geefstuk(cord a);
+	void printwhat(what a);
 private:
 	std::vector <pawn> whitepions;
 	std::vector <pawn> blackpions;
