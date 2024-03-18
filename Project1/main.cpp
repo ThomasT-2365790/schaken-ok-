@@ -141,9 +141,8 @@ int main() {
                 {
                 verschil = verschil_coordblack(nu, nieuw);
                 }
-
-            pawn test(color::W, cord(0, 0));
-            if (test.is_mog_bew(verschil))
+            stuk test(color::W, cord(0, 0),what::PAWN );
+            if (test.is_mog_bew(verschil,nu))
             {
                 spelbord.play(nu, nieuw);
                 ++teller_kleur;

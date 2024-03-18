@@ -1,4 +1,5 @@
 #include "cord.h"
+#include "what.h"
 
 cord::cord(int _rij, int _kolom) :rij{ _rij }, kolom{ _kolom } {}
 
@@ -17,3 +18,4 @@ int cord::getrij() {
 
 	return rij;
 }
+
