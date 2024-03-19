@@ -1,4 +1,5 @@
 #include "bord.h"
+#include "pawn.h"
 #include <iostream>
 int char_to_int(char letter)//deze zet de letterinvoer van de user om naar een cijfer
 {
@@ -141,8 +142,8 @@ int main() {
                 {
                 verschil = verschil_coordblack(nu, nieuw);
                 }
-            stuk test(color::W, cord(0, 0),what::PAWN );
-            if (test.is_mog_bew(verschil,nu))
+            pawn test(color::W, cord(0, 0));
+            if (test.is_mog_bew(verschil))
             {
                 spelbord.play(nu, nieuw);
                 ++teller_kleur;

@@ -12,12 +12,13 @@ public:
 	void movestuk(cord& nieuw);
 	cord getcord();
 	what getwhat();
-	bool is_mog_bew(cord verschil,cord nu);
 	bool coordinaatvergelijker_stuk(cord one, cord two);
+
 private:
 	color collor;
-	cord coordinaat;
 	what wat;
-	std::vector<cord> bew_pawn;
+protected:
+	cord coordinaat;
+	
 
 };

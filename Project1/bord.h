@@ -19,6 +19,6 @@ public:
 	void printwhat(what gender);
 	bool in_bounce(cord coord);
 private:
-	std::vector <stuk> whitepions;
-	std::vector <stuk> blackpions;
+	std::vector <stuk*> whitepions;
+	std::vector <stuk*> blackpions;
 };
