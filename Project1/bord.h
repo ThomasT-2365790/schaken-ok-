@@ -15,8 +15,6 @@ public:
 	cord isPionAt(cord coord);
 	bool coordinaatvergelijker_inbord(cord one, cord two);
 	color geefkleurvanco(cord coord);
-	what geefstuk(cord coord);
-	void printwhat(what gender);
 	bool in_bounce(cord coord);
 private:
 	std::vector <stuk*> whitepions;

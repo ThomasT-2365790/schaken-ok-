@@ -47,7 +47,28 @@
     <ClInclude Include="stuk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="what.h">
+    <ClInclude Include="speler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="human.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="paard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="loper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="koning.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="toren.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="konignin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

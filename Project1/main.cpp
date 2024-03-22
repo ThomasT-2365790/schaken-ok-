@@ -37,16 +37,6 @@ int char_to_int(char letter)//deze zet de letterinvoer van de user om naar een c
     return num;
 }
 
-cord verschil_coordwhite(cord a, cord b) {      //deze berekent het verschil tussen 2 coordinaten
-    int kolom = b.getkolom() - a.getkolom();
-    int rij = b.getrij() - a.getrij();
-    return cord(rij, kolom);
-}
-cord verschil_coordblack(cord a, cord b) {      //deze berekent het verschil tussen 2 coordinaten
-    int kolom = a.getkolom() - b.getkolom();
-    int rij = a.getrij() - b.getrij();
-    return cord(rij, kolom);
-}
 
 int main() {
     std::cout << "startspel\n";

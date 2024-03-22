@@ -4,9 +4,8 @@ class pawn : public stuk
 {
 public:
 	pawn(color kleur, cord coord);
-	bool is_mog_bew(cord coord);
+	bool is_mog_bew(cord nu,cord nieuw);
 
 private:
-	std::vector<cord> bew_pawn;
 
 };

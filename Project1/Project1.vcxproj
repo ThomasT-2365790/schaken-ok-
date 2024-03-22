@@ -27,11 +27,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bord.h" />
+    <ClInclude Include="bot.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="cord.h" />
+    <ClInclude Include="human.h" />
+    <ClInclude Include="konignin.h" />
+    <ClInclude Include="koning.h" />
+    <ClInclude Include="loper.h" />
+    <ClInclude Include="paard.h" />
     <ClInclude Include="pawn.h" />
+    <ClInclude Include="speler.h" />
     <ClInclude Include="stuk.h" />
-    <ClInclude Include="what.h" />
+    <ClInclude Include="toren.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="idee.md" />
