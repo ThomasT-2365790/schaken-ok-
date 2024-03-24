@@ -7,6 +7,8 @@ public:
 	int getkolom();
 	int getrij();
 
+	friend class bord;
+
 private:
 	int rij;
 	int kolom;

@@ -1,6 +1,5 @@
 #include "cord.h"
-#include "what.h"
-
+#include "color.h"
 cord::cord(int _rij, int _kolom) :rij{ _rij }, kolom{ _kolom } {}
 
 

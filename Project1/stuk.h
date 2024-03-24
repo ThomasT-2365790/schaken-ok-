@@ -17,7 +17,7 @@ private:
 	color collor;
 	cord coordinaat;
 protected:
-	bord* naam;
+	bord& spelbord;
 
 	
 

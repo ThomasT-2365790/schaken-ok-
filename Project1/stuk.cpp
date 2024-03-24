@@ -1,9 +1,8 @@
 #include "stuk.h"
 #include "color.h"
 #include <iostream>
-#include "what.h"
 
-stuk::stuk(color kleur, cord coord, what gender) :collor{ kleur }, coordinaat{ coord },wat{ gender } {}
+stuk::stuk(color kleur, cord coord) :collor{ kleur }, coordinaat{ coord } {}
 
 
 color stuk::getcolor()

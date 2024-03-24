@@ -5,7 +5,7 @@ bool pawn::is_mog_bew(cord nu,cord nieuw) {
 
 	if (nu.getkolom() == nieuw.getkolom())// moven zonder aanval
 	{
-		if (this->getcolor() == color::W)
+		if (this->getcolor() == color::W)/// W
 		{
 			if (nu.getrij() == 2)
 			{
@@ -13,7 +13,7 @@ bool pawn::is_mog_bew(cord nu,cord nieuw) {
 			}
 			else if (nu.getrij() == nieuw.getrij() - 1){return true;}
 		}
-		else
+		else///B
 		{
 			if (nu.getrij() == 7)
 			{
@@ -24,17 +24,17 @@ bool pawn::is_mog_bew(cord nu,cord nieuw) {
 	}
 	else if(nu.getkolom()==nieuw.getkolom()+1 or nu.getkolom()==nieuw.getkolom()-1)//aanval
 	{
-		if (this->getcolor() == color::W and nu.getrij()==nieuw.getrij()-1)
+		if (this->getcolor() == color::W and nu.getrij()==nieuw.getrij()-1)//W
 		{
-			if (naam->isPionAt() { return true; }
+			if( spelbord.geefkleurvancoinbord(nieuw)==color::W){ return true; }
 			
 		}
-		else if (this->getcolor() == color::B and nu.getrij() == nieuw.getrij() + 1)
+		else if (this->getcolor() == color::B and nu.getrij() == nieuw.getrij() + 1)//B
 		{
-			if (1 == 1) { return true; }
+			if (spelbord.geefkleurvancoinbord(nieuw) == color::B) { return true; }
 		}
 	}
-	return false;
+	return false;//geen mog beweging
 
 }
 pawn::pawn(color kleur, cord coord) : stuk{ kleur, coord } {

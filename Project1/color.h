@@ -1,2 +1,2 @@
 #pragma once
-enum class color { W, B };
+enum class color { W, B};

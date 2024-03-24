@@ -75,7 +75,7 @@ cord bord::isPionAt(cord c) {
 	return cord(0,0); // Coördinaat niet gevonden
 }
 
-color bord::geefkleurvanco(cord a) {
+color bord::geefkleurvancoinbord(cord a) {
 	for (stuk* pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw->getcord(), a)) {
 			return color::W; // Coördinaat gevonden
@@ -114,7 +114,7 @@ void bord::printbord()
 			}
 			else
 			{
-				color kleur = geefkleurvanco(cord(verticaal, horizontaal));
+				color kleur = geefkleurvancoinbord(cord(verticaal, horizontaal));
 				what waat = geefstuk(cord(verticaal, horizontaal));
 				if (kleur == color::W)
 				{
