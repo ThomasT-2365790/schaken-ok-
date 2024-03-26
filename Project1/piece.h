@@ -2,7 +2,7 @@
 #include "Cord.h"
 #include "Color.h"
 #include <vector>
-#include "Bord.h"
+class Bord;//in de plaats van includen, als ik include infinte loop
 
 class Piece {
 
@@ -17,8 +17,7 @@ public:
 private:
 	Color color_piece;
 	Cord cordinate;
-protected:
-	Bord& playbord;
+
 
 	
 

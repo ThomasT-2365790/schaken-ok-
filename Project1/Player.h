@@ -10,6 +10,4 @@ public:
 private:
 	Color _color;
 
-protected:
-	Bord playbord;
 };

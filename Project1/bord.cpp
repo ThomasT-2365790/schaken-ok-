@@ -114,8 +114,8 @@ Cord Bord::piece_at(Cord _cord) {
 		if (compare_cord(_piece->getcord(), _cord)) {
 			return _piece->getcord(); // Coördinaat gevonden
 		}
-		return Cord(0, 0); // Coördinaat niet gevonden
 	}
+	return Cord(0, 0); // Coördinaat niet gevonden
 }
 
 bool Bord::compare_cord(Cord one, Cord two) {
@@ -137,7 +137,7 @@ Color Bord::color_cord(Cord _cord) {
 
 bool Bord::in_bounce(Cord _cord) {
 
-
+	return true;
 	}
 
 void Bord::kill(Cord to_kill) {

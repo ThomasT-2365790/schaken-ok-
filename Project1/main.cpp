@@ -7,7 +7,7 @@
 
 int main() {
 	Bord spelbord;
-	
+	spelbord.printbord();
 
 	std::string gamemode;
 	std::cout << "PvP or PvE";
@@ -22,7 +22,7 @@ int main() {
 
 
 	bool iswhite = true;
-	spelbord.printbord();
+	
 	while (true) {
 		
 

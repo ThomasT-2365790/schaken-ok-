@@ -27,7 +27,6 @@
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="oudemain.md" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Piece.cpp" />
@@ -48,9 +47,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Tower.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="idee.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
