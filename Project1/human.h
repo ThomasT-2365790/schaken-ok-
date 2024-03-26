@@ -1,9 +1,9 @@
 #pragma once
-#include "speler.h"
-#include "color.h"
-class human : public speler {
+#include "Player.h"
+#include "Color.h"
+class Human : public Player {
 public:
-	human(color kleur);
+	Human(Color color);
 private:
 
 };

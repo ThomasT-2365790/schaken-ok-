@@ -6,18 +6,18 @@
 #include "bot.h"
 
 int main() {
-	bord spelbord;
+	Bord spelbord;
 	
 
 	std::string gamemode;
 	std::cout << "PvP or PvE";
 	std::cin >> gamemode;
-	human player1(color::W);
+	Human player1(Color::W);
 	if (gamemode == "PvP"){
-		human player2(color::B);
+		Human player2(Color::B);
 	}
 	else if (gamemode == "PvE") {
-		bot player2(color::B);
+		Bot player2(Color::B);
 	}
 
 

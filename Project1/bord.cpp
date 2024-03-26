@@ -4,32 +4,32 @@
 #include <vector>
 #include "color.h"
 #include <string>
-#include "pawn.h"
+#include "Piece.h"
 
 
-bord::bord()
+Bord::Bord()
 {
-	setstuk(pawn{ color::W, cord(2, 1)});
-	setstuk(pawn{ color::W, cord(2, 2)});
-	setstuk(pawn{ color::W, cord(2, 3)});
-	setstuk(pawn{ color::W, cord(2, 4)});
-	setstuk(pawn{ color::W, cord(2, 5)});
-	setstuk(pawn{ color::W, cord(2, 6)});
-	setstuk(pawn{ color::W, cord(2, 7)});
-	setstuk(pawn{ color::W, cord(2, 8)});
+	setstuk(Pawn{ Color::W, Cord(2, 1)});
+	setstuk(Pawn{ Color::W, Cord(2, 2)});
+	setstuk(Pawn{ Color::W, Cord(2, 3)});
+	setstuk(Pawn{ Color::W, Cord(2, 4)});
+	setstuk(Pawn{ Color::W, Cord(2, 5)});
+	setstuk(Pawn{ Color::W, Cord(2, 6)});
+	setstuk(Pawn{ Color::W, Cord(2, 7)});
+	setstuk(Pawn{ Color::W, Cord(2, 8)});
 
-	setstuk(pawn{ color::B, cord(7, 1)});
-	setstuk(pawn{ color::B, cord(7, 2)});
-	setstuk(pawn{ color::B, cord(7, 3)});
-	setstuk(pawn{ color::B, cord(7, 4)});
-	setstuk(pawn{ color::B, cord(7, 5)});
-	setstuk(pawn{ color::B, cord(7, 6)});
-	setstuk(pawn{ color::B, cord(7, 7)});
-	setstuk(pawn{ color::B, cord(7, 8)});
+	setstuk(Pawn{ Color::B, Cord(7, 1)});
+	setstuk(Pawn{ Color::B, Cord(7, 2)});
+	setstuk(Pawn{ Color::B, Cord(7, 3)});
+	setstuk(Pawn{ Color::B, Cord(7, 4)});
+	setstuk(Pawn{ Color::B, Cord(7, 5)});
+	setstuk(Pawn{ Color::B, Cord(7, 6)});
+	setstuk(Pawn{ Color::B, Cord(7, 7)});
+	setstuk(Pawn{ Color::B, Cord(7, 8)});
 
 
 }
-bool bord::coordinaatvergelijker_inbord(cord a, cord b)
+bool Bord::coordinaatvergelijker_inbord(Cord a, Cord b)
 {
 	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
 	{
@@ -38,7 +38,7 @@ bool bord::coordinaatvergelijker_inbord(cord a, cord b)
 	return false;
 
 }
-void bord::printwhat(what a) {
+void Bord::printwhat(what a) {
 	switch (a)
 	{
 	case what::PAWN:
@@ -61,43 +61,43 @@ void bord::printwhat(what a) {
 		break;
 	}
 }
-cord bord::isPionAt(cord c) {
-	for (stuk* pw : whitepions) {
+Cord Bord::isPionAt(Cord c) {
+	for (Stuk* pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw->getcord(),c )) {
 			return pw->getcord(); // Coördinaat gevonden
 		}
 	}
-	for (stuk* pb : blackpions) {
+	for (Stuk* pb : blackpions) {
 		if (coordinaatvergelijker_inbord(pb->getcord(), c)) {
 			return pb->getcord(); // Coördinaat gevonden
 		}
 	}
-	return cord(0,0); // Coördinaat niet gevonden
+	return Cord(0,0); // Coördinaat niet gevonden
 }
 
-color bord::geefkleurvancoinbord(cord a) {
-	for (stuk* pw : whitepions) {
+Color Bord::geefkleurvancoinbord(Cord a) {
+	for (Stuk* pw : whitepions) {
 		if (coordinaatvergelijker_inbord(pw->getcord(), a)) {
-			return color::W; // Coördinaat gevonden
+			return Color::W; // Coördinaat gevonden
 		}
 		
 	}
-	return color::B;
+	return Color::B;
 }
-what bord::geefstuk(cord a) {
-	for (stuk* k : whitepions)
+what Bord::geefstuk(Cord a) {
+	for (Stuk* k : whitepions)
 	{
 		if (coordinaatvergelijker_inbord(k->getcord(), a))
 			return k->getwhat();
 	}
-	for (stuk* k : blackpions)
+	for (Stuk* k : blackpions)
 	{
 		if (coordinaatvergelijker_inbord(k->getcord(), a))
 			return k->getwhat();
 	}
 
 }
-void bord::printbord()
+void Bord::printbord()
 {
 	const std::string RESET_COLOR = "\033[0m";
 	const std::string RED_COLOR = "\033[31m";
@@ -108,15 +108,15 @@ void bord::printbord()
 		std::cout << tellerrand;
 		--tellerrand;
 		for (int horizontaal=1;horizontaal<=8;++horizontaal)
-			if (coordinaatvergelijker_inbord(isPionAt(cord(verticaal, horizontaal)), cord(0, 0)))
+			if (coordinaatvergelijker_inbord(isPionAt(Cord(verticaal, horizontaal)), Cord(0, 0)))
 			{
 				std::cout << " - ";
 			}
 			else
 			{
-				color kleur = geefkleurvancoinbord(cord(verticaal, horizontaal));
+				Color kleur = geefkleurvancoinbord(Cord(verticaal, horizontaal));
 				what waat = geefstuk(cord(verticaal, horizontaal));
-				if (kleur == color::W)
+				if (kleur == Color::W)
 				{
 					std::cout << GREEN_COLOR;
 					printwhat(waat);
@@ -146,39 +146,32 @@ void bord::printbord()
 	}*/
 }
 
-void bord::setstuk(stuk p) {
-	stuk* newPiece = new stuk(p);
-	if (p.getcolor() == color::W) {
+void Bord::setstuk(Stuk p) {
+	Stuk* newPiece = new Stuk(p);
+	if (p.getcolor() == Color::W) {
 		whitepions.push_back(newPiece);
 	}
-	else if(p.getcolor() == color::B){
+	else if(p.getcolor() == Color::B){
 		blackpions.push_back(newPiece);
 	}
 
 }
 
-void bord::play(cord nu, cord nieuw) {
+void Bord::play(Cord nu, Cord nieuw) {
 
-	for (stuk* piontomove : whitepions)
+	for (Stuk* piontomove : stukken)
 	{	
 		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())){
 			piontomove->movestuk(nieuw);
 		}
 	}
 
-	for (stuk* piontomove : blackpions)
-	{
-		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())) {
-			piontomove->movestuk(nieuw);
-		}
-	}
-}
 
 
 
-void bord::kill(cord to_kill) {
+void Bord::kill(Cord to_kill) {
 	int tellerw = 0;
-	for (stuk* piontomove : whitepions)
+	for (Stuk* piontomove : whitepions)
 	{
 		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
 			whitepions.erase(whitepions.begin() + tellerw);
@@ -187,7 +180,7 @@ void bord::kill(cord to_kill) {
 		++tellerw;
 	}
 	int tellerb = 0;
-	for (stuk* piontomove : blackpions)
+	for (Stuk* piontomove : blackpions)
 	{
 		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
 			blackpions.erase(blackpions.begin() + tellerb);

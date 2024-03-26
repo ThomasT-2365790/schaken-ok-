@@ -1,10 +1,10 @@
-#include "stuk.h"
+#include "Piece.h"
 
-class pawn : public stuk
+class Pawn : public Piece
 {
 public:
-	pawn(color kleur, cord coord);
-	bool is_mog_bew(cord nu,cord nieuw);
+	Pawn(Color color, Cord cord);
+	bool is_pos(Cord _now,Cord _new);
 
 private:
 

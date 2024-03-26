@@ -1,11 +1,11 @@
 #include "pawn.h"
 #include "bord.h"
 
-bool pawn::is_mog_bew(cord nu,cord nieuw) {
+bool Pawn::is_mog_bew(Cord nu,Cord nieuw) {
 
 	if (nu.getkolom() == nieuw.getkolom())// moven zonder aanval
 	{
-		if (this->getcolor() == color::W)/// W
+		if (this->getcolor() == Color::W)/// W
 		{
 			if (nu.getrij() == 2)
 			{
@@ -24,18 +24,18 @@ bool pawn::is_mog_bew(cord nu,cord nieuw) {
 	}
 	else if(nu.getkolom()==nieuw.getkolom()+1 or nu.getkolom()==nieuw.getkolom()-1)//aanval
 	{
-		if (this->getcolor() == color::W and nu.getrij()==nieuw.getrij()-1)//W
+		if (this->getcolor() == Color::W and nu.getrij()==nieuw.getrij()-1)//W
 		{
-			if( spelbord.geefkleurvancoinbord(nieuw)==color::B){ return true; }
+			if( spelbord.geefkleurvancoinbord(nieuw)==Color::B){ return true; }
 			
 		}
-		else if (this->getcolor() == color::B and nu.getrij() == nieuw.getrij() + 1)//B
+		else if (this->getcolor() == Color::B and nu.getrij() == nieuw.getrij() + 1)//B
 		{
-			if (spelbord.geefkleurvancoinbord(nieuw) == color::W) { return true; }
+			if (spelbord.geefkleurvancoinbord(nieuw) == Color::W) { return true; }
 		}
 	}
 	return false;//geen mog beweging
 
 }
-pawn::pawn(color kleur, cord coord) : stuk{ kleur, coord } {
+Pawn::Pawn(Color kleur, Cord coord) : Stuk{ kleur, coord } {
 }

@@ -2,25 +2,25 @@
 #include "color.h"
 #include <iostream>
 
-stuk::stuk(color kleur, cord coord) :collor{ kleur }, coordinaat{ coord } {}
+Stuk::Stuk(Color kleur, Cord coord) :collor{ kleur }, coordinaat{ coord } {}
 
 
-color stuk::getcolor()
+Color Stuk::getcolor()
 {
 	return collor;
 }
 
-void stuk::movestuk(cord& nieuw)
+void Stuk::movestuk(Cord& nieuw)
 {
 	coordinaat = nieuw;
 }
 
-cord stuk::getcord()
+Cord Stuk::getcord()
 {
 	return coordinaat;
 }
 
-bool stuk::coordinaatvergelijker_stuk(cord a, cord b)
+bool Stuk::coordinaatvergelijker_stuk(Cord a, Cord b)
 {
 	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
 	{

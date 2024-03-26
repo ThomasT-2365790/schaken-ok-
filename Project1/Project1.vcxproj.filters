@@ -15,72 +15,87 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bord.cpp">
+    <ClCompile Include="Bord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cord.cpp">
+    <ClCompile Include="Cord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pawn.cpp">
+    <ClCompile Include="Pawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stuk.cpp">
+    <ClCompile Include="Piece.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="oudemain.md">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="human.cpp">
+    <ClCompile Include="Human.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="speler.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bot.cpp">
+    <ClCompile Include="Bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Queen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bishop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bord.h">
+    <ClInclude Include="Bord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="color.h">
+    <ClInclude Include="Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cord.h">
+    <ClInclude Include="Cord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pawn.h">
+    <ClInclude Include="Pawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stuk.h">
+    <ClInclude Include="Piece.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="speler.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="human.h">
+    <ClInclude Include="Human.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bot.h">
+    <ClInclude Include="Bot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="paard.h">
+    <ClInclude Include="Knight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="loper.h">
+    <ClInclude Include="Bishop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="koning.h">
+    <ClInclude Include="King.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="toren.h">
+    <ClInclude Include="Tower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="konignin.h">
+    <ClInclude Include="Queen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

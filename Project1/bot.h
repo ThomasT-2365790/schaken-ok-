@@ -1,8 +1,8 @@
 #pragma once
-class bot : public speler {
+class Bot : public Player {
 
 public:
-	bot(color kleur);
+	Bot(Color color);
 	bool automove();
 
 private:

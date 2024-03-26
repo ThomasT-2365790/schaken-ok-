@@ -1,22 +1,21 @@
 #pragma once
 #include <vector>
-#include "stuk.h"
-#include "cord.h"
-#include "color.h"
+#include "Piece.h"
+#include "Cord.h"
+#include "Color.h"
 
-class bord {
+class Bord {
 	
 public:
-	bord();
+	Bord();
 	void printbord();
-	void setstuk(stuk piece);
-	void play(cord now, cord after);
-	cord isPionAt(cord coord);
-	bool coordinaatvergelijker_inbord(cord one, cord two);
-	color geefkleurvancoinbord(cord coord);
-	bool in_bounce(cord coord);
-	void kill(cord to_kill);
+	void setpiece(Piece piece);
+	void play(Cord now, Cord after);
+	Cord piece_at(Cord _cord);
+	bool compare_cord(Cord one, Cord two);
+	Color color_cord(Cord coord);
+	bool in_bounce(Cord coord);
+	void kill(Cord to_kill);
 private:
-	std::vector <stuk*> whitepions;
-	std::vector <stuk*> blackpions;
+	std::vector <Piece*> Pieces;
 };

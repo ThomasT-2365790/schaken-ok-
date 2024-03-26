@@ -1,19 +1,19 @@
 #include "cord.h"
 #include "color.h"
-cord::cord(int _rij, int _kolom) :rij{ _rij }, kolom{ _kolom } {}
+Cord::Cord(int _rij, int _kolom) :rij{ _rij }, kolom{ _kolom } {}
 
 
-void cord::update_cord(int _kolom, int _rij)
+void Cord::update_cord(int _kolom, int _rij)
 {
 	rij = _rij;
 	kolom = _kolom;
 }
 
-int cord::getkolom() {
+int Cord::getkolom() {
 
 	return kolom;
 }
-int cord::getrij() {
+int Cord::getrij() {
 
 	return rij;
 }

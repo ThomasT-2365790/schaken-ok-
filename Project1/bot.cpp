@@ -2,10 +2,10 @@
 #include "color.h"
 #include "speler.h"
 
-bot::bot(color kleur) : speler{ kleur } {};
+Bot::Bot(Color kleur) : speler{ kleur } {};
 
 
-bool bot::automove() {
+bool Bot::automove() {
 
 
 }
