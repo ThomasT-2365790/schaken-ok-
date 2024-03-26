@@ -7,6 +7,6 @@ bool Bishop::is_pos(Cord _now, Cord _new) {
 }
 Bishop::Bishop(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void Bishop::print_type() const {
+void Bishop::print_type() {
 	std::cout << " B ";
 }

@@ -29,7 +29,7 @@ bool Piece::compare_cord(Cord a, Cord b)
 	return false;
 }
 
-void Piece::print_type() const {
+void Piece::print_type() {
 
 	std::cout << " Piece ";
 }

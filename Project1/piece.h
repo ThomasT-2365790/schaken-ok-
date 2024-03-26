@@ -12,7 +12,7 @@ public:
 	void movepiece(Cord& nieuw);
 	Cord getcord();
 	bool compare_cord(Cord one, Cord two);
-	virtual void print_type() const;
+	virtual void print_type();
 
 private:
 	Color color_piece;

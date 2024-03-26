@@ -18,29 +18,32 @@
 Bord::Bord()
 {
 	for (int index = 0;index < 9;++index){
-		setpiece(Pawn{ Color::W, Cord(2, index)});
-		setpiece(Pawn{ Color::B, Cord(7, index) });
+		pieces.push_back(new Pawn{ Color::W, Cord(2, index)});
+		pieces.push_back(new Pawn{ Color::B, Cord(7, index) });
+
 	}
-	setpiece(Knight{ Color::W, Cord(1, 2) });
-	setpiece(Knight{ Color::W, Cord(1, 7) });
-	setpiece(Knight{ Color::B, Cord(8, 2) });
-	setpiece(Knight{ Color::B, Cord(8, 7) });
+	pieces.push_back(new Knight{ Color::W, Cord(1, 2) });
+	pieces.push_back(new Knight{ Color::W, Cord(1, 7) });
+	pieces.push_back(new Knight{ Color::B, Cord(8, 2) });
+	pieces.push_back(new Knight{ Color::B, Cord(8, 7) });
 
-	setpiece(Tower{ Color::W, Cord(1, 1) });
-	setpiece(Tower{ Color::W, Cord(1, 8) });
-	setpiece(Tower{ Color::B, Cord(8, 1) });
-	setpiece(Tower{ Color::B, Cord(8, 8) });
+	pieces.push_back(new Tower{ Color::W, Cord(1, 1) });
+	pieces.push_back(new Tower{ Color::W, Cord(1, 8) });
+	pieces.push_back(new Tower{ Color::B, Cord(8, 1) });
+	pieces.push_back(new Tower{ Color::B, Cord(8, 8) });
 
-	setpiece(Bishop{ Color::W, Cord(1, 3) });
-	setpiece(Bishop{ Color::W, Cord(1, 6) });
-	setpiece(Bishop{ Color::B, Cord(8, 3) });
-	setpiece(Bishop{ Color::B, Cord(8, 6) });
+	pieces.push_back(new Bishop{ Color::W, Cord(1, 3) });
+	pieces.push_back(new Bishop{ Color::W, Cord(1, 6) });
+	pieces.push_back(new Bishop{ Color::B, Cord(8, 3) });
+	pieces.push_back(new Bishop{ Color::B, Cord(8, 6) });
+	
+	pieces.push_back(new King{ Color::W, Cord(1, 5) });
+	pieces.push_back(new King{ Color::B, Cord(8, 5) });
 
-	setpiece(King{ Color::W, Cord(1, 5) });
-	setpiece(King{ Color::B, Cord(8, 5) });
+	pieces.push_back(new Queen{ Color::W, Cord(1, 4) });
+	pieces.push_back(new Queen{ Color::B, Cord(8, 4) });
 
-	setpiece(Queen{ Color::W, Cord(1, 4) });
-	setpiece(Queen{ Color::B, Cord(8, 4) });
+
 }
 
 
@@ -89,11 +92,6 @@ void Bord::printbord()
 }
 
 
-
-void Bord::setpiece(Piece _piece) {
-	Piece* newPiece = new Piece(_piece);
-	pieces.push_back(newPiece);
-}
 
 
 
