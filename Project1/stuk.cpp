@@ -20,9 +20,6 @@ cord stuk::getcord()
 	return coordinaat;
 }
 
-what stuk::getwhat() {
-	return wat;
-}
 bool stuk::coordinaatvergelijker_stuk(cord a, cord b)
 {
 	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
@@ -31,3 +28,4 @@ bool stuk::coordinaatvergelijker_stuk(cord a, cord b)
 	}
 	return false;
 }
+

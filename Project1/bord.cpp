@@ -162,17 +162,15 @@ void bord::play(cord nu, cord nieuw) {
 	for (stuk* piontomove : whitepions)
 	{	
 		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())){
-			piontomove
+			piontomove->movestuk(nieuw);
 		}
-
-		
 	}
 
 	for (stuk* piontomove : blackpions)
 	{
-
-
-		
+		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())) {
+			piontomove->movestuk(nieuw);
+		}
 	}
 }
 

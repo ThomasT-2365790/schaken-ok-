@@ -18,7 +18,6 @@ private:
 	cord coordinaat;
 protected:
 	bord& spelbord;
-	cord& 
 
 	
 
