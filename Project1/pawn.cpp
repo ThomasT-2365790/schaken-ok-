@@ -26,12 +26,12 @@ bool pawn::is_mog_bew(cord nu,cord nieuw) {
 	{
 		if (this->getcolor() == color::W and nu.getrij()==nieuw.getrij()-1)//W
 		{
-			if( spelbord.geefkleurvancoinbord(nieuw)==color::W){ return true; }
+			if( spelbord.geefkleurvancoinbord(nieuw)==color::B){ return true; }
 			
 		}
 		else if (this->getcolor() == color::B and nu.getrij() == nieuw.getrij() + 1)//B
 		{
-			if (spelbord.geefkleurvancoinbord(nieuw) == color::B) { return true; }
+			if (spelbord.geefkleurvancoinbord(nieuw) == color::W) { return true; }
 		}
 	}
 	return false;//geen mog beweging

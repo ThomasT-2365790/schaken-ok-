@@ -158,30 +158,42 @@ void bord::setstuk(stuk p) {
 }
 
 void bord::play(cord nu, cord nieuw) {
-	int tellerw = 0;
-	stuk* pionnieuw = new stuk(color::W,cord(0,0),what::PAWN);
+
 	for (stuk* piontomove : whitepions)
 	{	
-		if (coordinaatvergelijker_inbord(piontomove->getcord(),nu)) {
-			whitepions.erase(whitepions.begin()+tellerw);
-			pionnieuw = piontomove;
-			pionnieuw->movestuk(nieuw);
-			whitepions.push_back(pionnieuw);
-			return;
+		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())){
+			piontomove
+		}
 
+		
+	}
+
+	for (stuk* piontomove : blackpions)
+	{
+
+
+		
+	}
+}
+
+
+
+void bord::kill(cord to_kill) {
+	int tellerw = 0;
+	for (stuk* piontomove : whitepions)
+	{
+		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
+			whitepions.erase(whitepions.begin() + tellerw);
+			return;
 		}
 		++tellerw;
 	}
 	int tellerb = 0;
 	for (stuk* piontomove : blackpions)
 	{
-		if (coordinaatvergelijker_inbord(piontomove->getcord(), nu)) {
+		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
 			blackpions.erase(blackpions.begin() + tellerb);
-			pionnieuw = piontomove;
-			pionnieuw->movestuk(nieuw);
-			blackpions.push_back(pionnieuw);
 			return;
-
 		}
 		++tellerb;
 	}

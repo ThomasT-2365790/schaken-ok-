@@ -6,6 +6,7 @@ public:
 	void update_cord(int rij, int kolom);
 	int getkolom();
 	int getrij();
+	void setcord(cord other);
 
 	friend class bord;
 

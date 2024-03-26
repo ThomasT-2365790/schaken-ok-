@@ -20,9 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bord.cpp" />
+    <ClCompile Include="bot.cpp" />
     <ClCompile Include="cord.cpp" />
+    <ClCompile Include="human.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="oudemain.md" />
     <ClCompile Include="pawn.cpp" />
+    <ClCompile Include="speler.cpp" />
     <ClCompile Include="stuk.cpp" />
   </ItemGroup>
   <ItemGroup>

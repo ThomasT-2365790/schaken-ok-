@@ -30,6 +30,18 @@
     <ClCompile Include="stuk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="oudemain.md">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="human.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="speler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bord.h">

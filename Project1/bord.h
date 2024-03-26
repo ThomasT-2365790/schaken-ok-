@@ -15,6 +15,7 @@ public:
 	bool coordinaatvergelijker_inbord(cord one, cord two);
 	color geefkleurvancoinbord(cord coord);
 	bool in_bounce(cord coord);
+	void kill(cord to_kill);
 private:
 	std::vector <stuk*> whitepions;
 	std::vector <stuk*> blackpions;

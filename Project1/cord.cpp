@@ -17,4 +17,10 @@ int cord::getrij() {
 
 	return rij;
 }
+void cord::setcord(cord other) {
+	
+	rij = other.getrij();
+	kolom = other.getkolom();
+
+}
 
