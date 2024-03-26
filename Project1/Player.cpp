@@ -1,11 +1,11 @@
-#include "speler.h"
-#include "color.h"
-#include "cord.h"
-#include "stuk.h"
+#include "Player.h"
+#include "Color.h"
+#include "Cord.h"
+#include "Piece.h"
 
-Player::Player(Color kleur_van_speler) : kleur{ kleur_van_speler } {};
+Player::Player(Color color) : _color{ color } {};
 
-void Speler::movestuk(Cord nu, Cord nieuw) {
-	spelbord.play(nu, nieuw);
+void Player::movestuk(Cord _now, Cord _new) {
+	playbord.play(_now, _new);
 
 }

@@ -1,9 +1,9 @@
-#include "bord.h"
-#include "speler.h"
+#include "Bord.h"
+#include "Player.h"
 #include <iostream>
 #include <string.h>
-#include "human.h"
-#include "bot.h"
+#include "Human.h"
+#include "Bot.h"
 
 int main() {
 	Bord spelbord;

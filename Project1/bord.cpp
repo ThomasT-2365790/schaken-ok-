@@ -1,114 +1,55 @@
-#include "bord.h"
-#include "cord.h"
+#include "Bord.h"
+#include "Cord.h"
 #include <iostream>
 #include <vector>
-#include "color.h"
+#include "Color.h"
 #include <string>
-#include "Piece.h"
+#include "Pawn.h"
 
 
 Bord::Bord()
 {
-	setstuk(Pawn{ Color::W, Cord(2, 1)});
-	setstuk(Pawn{ Color::W, Cord(2, 2)});
-	setstuk(Pawn{ Color::W, Cord(2, 3)});
-	setstuk(Pawn{ Color::W, Cord(2, 4)});
-	setstuk(Pawn{ Color::W, Cord(2, 5)});
-	setstuk(Pawn{ Color::W, Cord(2, 6)});
-	setstuk(Pawn{ Color::W, Cord(2, 7)});
-	setstuk(Pawn{ Color::W, Cord(2, 8)});
+	setpiece(Pawn{ Color::W, Cord(2, 1)});
+	setpiece(Pawn{ Color::W, Cord(2, 2)});
+	setpiece(Pawn{ Color::W, Cord(2, 3)});
+	setpiece(Pawn{ Color::W, Cord(2, 4)});
+	setpiece(Pawn{ Color::W, Cord(2, 5)});
+	setpiece(Pawn{ Color::W, Cord(2, 6)});
+	setpiece(Pawn{ Color::W, Cord(2, 7)});
+	setpiece(Pawn{ Color::W, Cord(2, 8)});
 
-	setstuk(Pawn{ Color::B, Cord(7, 1)});
-	setstuk(Pawn{ Color::B, Cord(7, 2)});
-	setstuk(Pawn{ Color::B, Cord(7, 3)});
-	setstuk(Pawn{ Color::B, Cord(7, 4)});
-	setstuk(Pawn{ Color::B, Cord(7, 5)});
-	setstuk(Pawn{ Color::B, Cord(7, 6)});
-	setstuk(Pawn{ Color::B, Cord(7, 7)});
-	setstuk(Pawn{ Color::B, Cord(7, 8)});
+	setpiece(Pawn{ Color::B, Cord(7, 1)});
+	setpiece(Pawn{ Color::B, Cord(7, 2)});
+	setpiece(Pawn{ Color::B, Cord(7, 3)});
+	setpiece(Pawn{ Color::B, Cord(7, 4)});
+	setpiece(Pawn{ Color::B, Cord(7, 5)});
+	setpiece(Pawn{ Color::B, Cord(7, 6)});
+	setpiece(Pawn{ Color::B, Cord(7, 7)});
+	setpiece(Pawn{ Color::B, Cord(7, 8)});
 
 
 }
-bool Bord::coordinaatvergelijker_inbord(Cord a, Cord b)
+bool Bord::compare_cord(Cord one, Cord two)
 {
-	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
+	if ((one.getcolum() == two.getcolum()) and (one.getrow() == two.getrow()))
 	{
 		return true;
 	}
 	return false;
 
 }
-void Bord::printwhat(what a) {
-	switch (a)
-	{
-	case what::PAWN:
-		std::cout << " P ";
-		break;
-	case what::HORSE:
-		std::cout << " H ";
-		break;
-	case what::KING:
-		std::cout << " K ";
-		break;
-	case what::QUEEN:
-		std::cout << " Q ";
-		break;
-	case what::ROOK:
-		std::cout << " R ";
-		break;
-	case what::BISHOP:
-		std::cout << " B ";
-		break;
-	}
-}
-Cord Bord::isPionAt(Cord c) {
-	for (Stuk* pw : whitepions) {
-		if (coordinaatvergelijker_inbord(pw->getcord(),c )) {
-			return pw->getcord(); // Coördinaat gevonden
-		}
-	}
-	for (Stuk* pb : blackpions) {
-		if (coordinaatvergelijker_inbord(pb->getcord(), c)) {
-			return pb->getcord(); // Coördinaat gevonden
-		}
-	}
-	return Cord(0,0); // Coördinaat niet gevonden
-}
-
-Color Bord::geefkleurvancoinbord(Cord a) {
-	for (Stuk* pw : whitepions) {
-		if (coordinaatvergelijker_inbord(pw->getcord(), a)) {
-			return Color::W; // Coördinaat gevonden
-		}
-		
-	}
-	return Color::B;
-}
-what Bord::geefstuk(Cord a) {
-	for (Stuk* k : whitepions)
-	{
-		if (coordinaatvergelijker_inbord(k->getcord(), a))
-			return k->getwhat();
-	}
-	for (Stuk* k : blackpions)
-	{
-		if (coordinaatvergelijker_inbord(k->getcord(), a))
-			return k->getwhat();
-	}
-
-}
 void Bord::printbord()
 {
 	const std::string RESET_COLOR = "\033[0m";
 	const std::string RED_COLOR = "\033[31m";
-	const std::string GREEN_COLOR= "\033[32m";
+	const std::string GREEN_COLOR = "\033[32m";
 	int tellerrand = 8;
 	for (int verticaal = 8;verticaal >= 1;--verticaal)
 	{
 		std::cout << tellerrand;
 		--tellerrand;
-		for (int horizontaal=1;horizontaal<=8;++horizontaal)
-			if (coordinaatvergelijker_inbord(isPionAt(Cord(verticaal, horizontaal)), Cord(0, 0)))
+		for (int horizontaal = 1;horizontaal <= 8;++horizontaal)
+			if (compare_cord(piece_at(Cord(verticaal, horizontaal)), Cord(0, 0)))
 			{
 				std::cout << " - ";
 			}
@@ -120,7 +61,7 @@ void Bord::printbord()
 				{
 					std::cout << GREEN_COLOR;
 					printwhat(waat);
-					std::cout <<RESET_COLOR;
+					std::cout << RESET_COLOR;
 				}
 				else
 				{
@@ -131,31 +72,24 @@ void Bord::printbord()
 			}
 		std::cout << std::endl;
 	}
-	std::cout << "  A  B  C  D  E  F  G  H"<<std::endl << std::endl;
-	/*for (pion pionw : whitepions)
-	{
-		std::cout << "W ";
-		pionw.printpion();
-
-	}
-	for (pion pionb : blackpions)
-	{
-		std::cout << "B ";
-		pionb.printpion();
-
-	}*/
+	std::cout << "  A  B  C  D  E  F  G  H" << std::endl << std::endl;
 }
 
-void Bord::setstuk(Stuk p) {
-	Stuk* newPiece = new Stuk(p);
-	if (p.getcolor() == Color::W) {
-		whitepions.push_back(newPiece);
-	}
-	else if(p.getcolor() == Color::B){
-		blackpions.push_back(newPiece);
-	}
-
+void Bord::setpiece(Piece _piece) {
+	Piece* newPiece = new Piece(_piece);
+	pieces.push_back(newPiece);
 }
+
+Cord Bord::piece_at(Cord _cord) {
+	for (Piece* _piece : pieces) {
+		if (compare_cord(_piece->getcord(),_cord )) {
+			return _piece->getcord(); // Coördinaat gevonden
+		}
+	return Cord(0,0); // Coördinaat niet gevonden
+}
+
+	
+
 
 void Bord::play(Cord nu, Cord nieuw) {
 
@@ -188,4 +122,13 @@ void Bord::kill(Cord to_kill) {
 		}
 		++tellerb;
 	}
+}
+Color Bord::color_cord(Cord _cord) {
+	for (Piece* _piece : pieces) {
+		if (coordinaatvergelijker_inbord(pw->getcord(), a)) {
+			return Color::W; // Coördinaat gevonden
+		}
+
+	}
+	return Color::B;
 }
