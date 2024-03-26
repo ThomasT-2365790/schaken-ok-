@@ -1,3 +1,3 @@
 #include "human.h"
 
-Human::Human(Color kleur) :Speler{ kleur } {};
+Human::Human(Color kleur) :Player{ kleur } {};

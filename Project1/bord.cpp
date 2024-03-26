@@ -1,43 +1,50 @@
-#include "Bord.h"
-#include "Cord.h"
 #include <iostream>
 #include <vector>
-#include "Color.h"
 #include <string>
+
+#include "Bord.h"
+#include "Cord.h"
+#include "Color.h"
+
 #include "Pawn.h"
+#include "Knight.h"
+#include "Queen.h"
+#include "Tower.h"
+#include "Bishop.h"
+#include "King.h"
+#
 
 
 Bord::Bord()
 {
-	setpiece(Pawn{ Color::W, Cord(2, 1)});
-	setpiece(Pawn{ Color::W, Cord(2, 2)});
-	setpiece(Pawn{ Color::W, Cord(2, 3)});
-	setpiece(Pawn{ Color::W, Cord(2, 4)});
-	setpiece(Pawn{ Color::W, Cord(2, 5)});
-	setpiece(Pawn{ Color::W, Cord(2, 6)});
-	setpiece(Pawn{ Color::W, Cord(2, 7)});
-	setpiece(Pawn{ Color::W, Cord(2, 8)});
-
-	setpiece(Pawn{ Color::B, Cord(7, 1)});
-	setpiece(Pawn{ Color::B, Cord(7, 2)});
-	setpiece(Pawn{ Color::B, Cord(7, 3)});
-	setpiece(Pawn{ Color::B, Cord(7, 4)});
-	setpiece(Pawn{ Color::B, Cord(7, 5)});
-	setpiece(Pawn{ Color::B, Cord(7, 6)});
-	setpiece(Pawn{ Color::B, Cord(7, 7)});
-	setpiece(Pawn{ Color::B, Cord(7, 8)});
-
-
-}
-bool Bord::compare_cord(Cord one, Cord two)
-{
-	if ((one.getcolum() == two.getcolum()) and (one.getrow() == two.getrow()))
-	{
-		return true;
+	for (int index = 0;index < 9;++index){
+		setpiece(Pawn{ Color::W, Cord(2, index)});
+		setpiece(Pawn{ Color::B, Cord(7, index) });
 	}
-	return false;
+	setpiece(Knight{ Color::W, Cord(1, 2) });
+	setpiece(Knight{ Color::W, Cord(1, 7) });
+	setpiece(Knight{ Color::B, Cord(8, 2) });
+	setpiece(Knight{ Color::B, Cord(8, 7) });
 
+	setpiece(Tower{ Color::W, Cord(1, 1) });
+	setpiece(Tower{ Color::W, Cord(1, 8) });
+	setpiece(Tower{ Color::B, Cord(8, 1) });
+	setpiece(Tower{ Color::B, Cord(8, 8) });
+
+	setpiece(Bishop{ Color::W, Cord(1, 3) });
+	setpiece(Bishop{ Color::W, Cord(1, 6) });
+	setpiece(Bishop{ Color::B, Cord(8, 3) });
+	setpiece(Bishop{ Color::B, Cord(8, 6) });
+
+	setpiece(King{ Color::W, Cord(1, 5) });
+	setpiece(King{ Color::B, Cord(8, 5) });
+
+	setpiece(Queen{ Color::W, Cord(1, 4) });
+	setpiece(Queen{ Color::B, Cord(8, 4) });
 }
+
+
+
 void Bord::printbord()
 {
 	const std::string RESET_COLOR = "\033[0m";
@@ -55,80 +62,93 @@ void Bord::printbord()
 			}
 			else
 			{
-				Color kleur = geefkleurvancoinbord(Cord(verticaal, horizontaal));
-				what waat = geefstuk(cord(verticaal, horizontaal));
-				if (kleur == Color::W)
-				{
-					std::cout << GREEN_COLOR;
-					printwhat(waat);
-					std::cout << RESET_COLOR;
+				for (Piece* _piece : pieces) {
+					if (compare_cord(_piece->getcord(), Cord(verticaal, horizontaal)))//piece found
+					{
+						if (_piece->getcolor() == Color::W)
+						{
+							std::cout << GREEN_COLOR;
+							_piece->print_type();
+							std::cout << RESET_COLOR;
+						}
+						else
+						{
+							std::cout << RED_COLOR;
+							_piece->print_type();
+							std::cout << RESET_COLOR;
+						}
+
+						break;
+					}
 				}
-				else
-				{
-					std::cout << RED_COLOR;
-					printwhat(waat);
-					std::cout << RESET_COLOR;
-				}
+				
 			}
 		std::cout << std::endl;
 	}
 	std::cout << "  A  B  C  D  E  F  G  H" << std::endl << std::endl;
 }
 
+
+
 void Bord::setpiece(Piece _piece) {
 	Piece* newPiece = new Piece(_piece);
 	pieces.push_back(newPiece);
 }
 
+
+
+void Bord::play(Cord now, Cord after) {
+
+	for (Piece* piontomove : pieces)
+	{
+		if (compare_cord(now, piontomove->getcord())) {
+			piontomove->movepiece(after);
+		}
+	}
+}
+
+
+
 Cord Bord::piece_at(Cord _cord) {
 	for (Piece* _piece : pieces) {
-		if (compare_cord(_piece->getcord(),_cord )) {
+		if (compare_cord(_piece->getcord(), _cord)) {
 			return _piece->getcord(); // Coördinaat gevonden
 		}
-	return Cord(0,0); // Coördinaat niet gevonden
-}
-
-	
-
-
-void Bord::play(Cord nu, Cord nieuw) {
-
-	for (Stuk* piontomove : stukken)
-	{	
-		if (coordinaatvergelijker_inbord(nu, piontomove->getcord())){
-			piontomove->movestuk(nieuw);
-		}
-	}
-
-
-
-
-void Bord::kill(Cord to_kill) {
-	int tellerw = 0;
-	for (Stuk* piontomove : whitepions)
-	{
-		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
-			whitepions.erase(whitepions.begin() + tellerw);
-			return;
-		}
-		++tellerw;
-	}
-	int tellerb = 0;
-	for (Stuk* piontomove : blackpions)
-	{
-		if (coordinaatvergelijker_inbord(piontomove->getcord(), to_kill)) {
-			blackpions.erase(blackpions.begin() + tellerb);
-			return;
-		}
-		++tellerb;
+		return Cord(0, 0); // Coördinaat niet gevonden
 	}
 }
+
+bool Bord::compare_cord(Cord one, Cord two) {
+	if ((one.getcolum() == two.getcolum()) and (one.getrow() == two.getrow()))
+	{
+		return true;
+	}
+	return false;
+}
+
 Color Bord::color_cord(Cord _cord) {
 	for (Piece* _piece : pieces) {
-		if (coordinaatvergelijker_inbord(pw->getcord(), a)) {
+		if (compare_cord(_piece->getcord(), _cord)) {
 			return Color::W; // Coördinaat gevonden
 		}
 
 	}
-	return Color::B;
 }
+
+bool Bord::in_bounce(Cord _cord) {
+
+
+	}
+
+void Bord::kill(Cord to_kill) {
+	int tellerw = 0;
+	for (Piece* _piece : pieces){
+		if (compare_cord(_piece->getcord(), to_kill))
+		{
+			auto to_erase = std::find(pieces.begin(), pieces.end(), _piece);//find zoekt hier voor ons de juiste waarde om te erasen
+			pieces.erase(to_erase);
+			break;
+		}
+	}
+}
+

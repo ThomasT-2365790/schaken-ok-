@@ -1,41 +1,45 @@
-#include "pawn.h"
-#include "bord.h"
+#include "Pawn.h"
+#include "Bord.h"
+#include <iostream>
 
-bool Pawn::is_mog_bew(Cord nu,Cord nieuw) {
+bool Pawn::is_pos(Cord nu,Cord nieuw) {
 
-	if (nu.getkolom() == nieuw.getkolom())// moven zonder aanval
+	if (nu.getcolum() == nieuw.getcolum())// moven zonder aanval
 	{
 		if (this->getcolor() == Color::W)/// W
 		{
-			if (nu.getrij() == 2)
+			if (nu.getrow() == 2)
 			{
-				if (nu.getrij() == nieuw.getrij() - 1 or nu.getrij() == nieuw.getrij() - 2){return true;}
+				if (nu.getrow() == nieuw.getrow() - 1 or nu.getrow() == nieuw.getrow() - 2){return true;}
 			}
-			else if (nu.getrij() == nieuw.getrij() - 1){return true;}
+			else if (nu.getrow() == nieuw.getrow() - 1){return true;}
 		}
 		else///B
 		{
-			if (nu.getrij() == 7)
+			if (nu.getrow() == 7)
 			{
-				if (nu.getrij() == nieuw.getrij() + 1 or nu.getrij() == nieuw.getrij() + 2){return true;}
+				if (nu.getrow() == nieuw.getrow() + 1 or nu.getrow() == nieuw.getrow() + 2){return true;}
 			}
-			else if (nu.getrij() == nieuw.getrij() + 1){return true;}
+			else if (nu.getrow() == nieuw.getrow() + 1){return true;}
 		}
 	}
-	else if(nu.getkolom()==nieuw.getkolom()+1 or nu.getkolom()==nieuw.getkolom()-1)//aanval
+	else if(nu.getcolum()==nieuw.getcolum()+1 or nu.getcolum()==nieuw.getcolum()-1)//aanval
 	{
-		if (this->getcolor() == Color::W and nu.getrij()==nieuw.getrij()-1)//W
+		if (this->getcolor() == Color::W and nu.getrow()==nieuw.getrow()-1)//W
 		{
-			if( spelbord.geefkleurvancoinbord(nieuw)==Color::B){ return true; }
+			if( playbord.color_cord(nieuw)==Color::B){ return true; }
 			
 		}
-		else if (this->getcolor() == Color::B and nu.getrij() == nieuw.getrij() + 1)//B
+		else if (this->getcolor() == Color::B and nu.getrow() == nieuw.getrow() + 1)//B
 		{
-			if (spelbord.geefkleurvancoinbord(nieuw) == Color::W) { return true; }
+			if (playbord.color_cord(nieuw) == Color::W) { return true; }
 		}
 	}
 	return false;//geen mog beweging
 
 }
-Pawn::Pawn(Color kleur, Cord coord) : Stuk{ kleur, coord } {
+Pawn::Pawn(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+
+void Pawn::print_type() const {
+	std::cout << " P ";
 }

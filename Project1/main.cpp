@@ -22,6 +22,7 @@ int main() {
 
 
 	bool iswhite = true;
+	spelbord.printbord();
 	while (true) {
 		
 

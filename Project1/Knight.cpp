@@ -1,5 +1,6 @@
 #include "Knight.h"
 #include <math.h>
+#include <iostream>
 
 bool Knight::is_pos(Cord _now, Cord _new) {
 	int dif_row = abs(_now.getrow() - _new.getrow());
@@ -10,3 +11,7 @@ bool Knight::is_pos(Cord _now, Cord _new) {
 	return false;
 }
 Knight::Knight(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+
+void Knight::print_type() const {
+	std::cout << " k ";
+}

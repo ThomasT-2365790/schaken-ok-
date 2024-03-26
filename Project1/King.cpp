@@ -1,5 +1,6 @@
 #include "King.h"
 #include <math.h>
+#include <iostream>
 
 bool King::is_pos(Cord _now, Cord _new) {
 	int dif_row = abs(_now.getrow() - _new.getrow());
@@ -10,3 +11,7 @@ bool King::is_pos(Cord _now, Cord _new) {
 	return false;
 }
 King::King(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+
+void King::print_type() const {
+	std::cout << " K ";
+}

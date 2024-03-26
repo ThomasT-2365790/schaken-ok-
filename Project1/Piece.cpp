@@ -1,31 +1,36 @@
-#include "stuk.h"
-#include "color.h"
+#include "Piece.h"
+#include "Color.h"
 #include <iostream>
 
-Stuk::Stuk(Color kleur, Cord coord) :collor{ kleur }, coordinaat{ coord } {}
+Piece::Piece(Color _color, Cord _cord) :color_piece{ _color }, cordinate{ _cord } {};
 
 
-Color Stuk::getcolor()
+Color Piece::getcolor()
 {
-	return collor;
+	return color_piece;
 }
 
-void Stuk::movestuk(Cord& nieuw)
+void Piece::movepiece(Cord& nieuw)
 {
-	coordinaat = nieuw;
+	cordinate = nieuw;
 }
 
-Cord Stuk::getcord()
+Cord Piece::getcord()
 {
-	return coordinaat;
+	return cordinate;
 }
 
-bool Stuk::coordinaatvergelijker_stuk(Cord a, Cord b)
+bool Piece::compare_cord(Cord a, Cord b)
 {
-	if ((a.getkolom() == b.getkolom()) and (a.getrij() == b.getrij()))
+	if ((a.getcolum() == b.getcolum()) and (a.getrow() == b.getrow()))
 	{
 		return true;
 	}
 	return false;
+}
+
+void Piece::print_type() const {
+
+	std::cout << " Piece ";
 }
 
