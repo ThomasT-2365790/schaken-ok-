@@ -9,7 +9,6 @@ class Bord {
 public:
 	Bord();
 	void printbord();
-	void setpiece(Piece _piece);
 	void play(Cord now, Cord after);
 	Cord piece_at(Cord _cord);
 	bool compare_cord(Cord one, Cord two);
