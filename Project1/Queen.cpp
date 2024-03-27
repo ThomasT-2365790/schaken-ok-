@@ -6,6 +6,6 @@ bool Queen::is_pos(Cord nu, Cord nieuw) {
 }
 Queen::Queen(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void Queen::print_type()  {
-	std::cout << " Q ";
+char Queen::return_type()  {
+	return 'Q';
 }

@@ -12,6 +12,6 @@ bool Knight::is_pos(Cord _now, Cord _new) {
 }
 Knight::Knight(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void Knight::print_type()  {
-	std::cout << " k ";
+char Knight::return_type()  {
+	return 'k';
 }

@@ -3,7 +3,6 @@ class Cord {
 
 public:
 	Cord(int _row, int _colum);
-	void update_cord(int _row, int _colum);
 	int getcolum();
 	int getrow();
 	

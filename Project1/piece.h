@@ -9,10 +9,11 @@ class Piece {
 public:
 	Piece(Color kleur, Cord coord); //constructor
 	Color getcolor();
-	void movepiece(Cord& nieuw);
+	void movepiece(Cord& nieuw);// deze moved gewoon geen controles
 	Cord getcord();
 	bool compare_cord(Cord one, Cord two);
-	virtual void print_type();
+	virtual char return_type();
+	virtual bool is_pos(Cord _now, Cord _new);
 
 private:
 	Color color_piece;

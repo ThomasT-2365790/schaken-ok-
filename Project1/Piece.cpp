@@ -12,6 +12,7 @@ Color Piece::getcolor()
 
 void Piece::movepiece(Cord& nieuw)
 {
+	
 	cordinate = nieuw;
 }
 
@@ -29,8 +30,11 @@ bool Piece::compare_cord(Cord a, Cord b)
 	return false;
 }
 
-void Piece::print_type() {
+char Piece::return_type() {
 
-	std::cout << " Piece ";
+	return' ';
+}
+bool Piece::is_pos(Cord _now, Cord _new) {
+	return true;
 }
 

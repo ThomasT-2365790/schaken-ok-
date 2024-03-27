@@ -12,6 +12,6 @@ bool King::is_pos(Cord _now, Cord _new) {
 }
 King::King(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void King::print_type()  {
-	std::cout << " K ";
+char King::return_type()  {
+	return 'K';
 }

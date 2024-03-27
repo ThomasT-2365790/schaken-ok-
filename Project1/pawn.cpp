@@ -40,6 +40,6 @@ bool Pawn::is_pos(Cord nu,Cord nieuw) {
 }
 Pawn::Pawn(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void Pawn::print_type()  {
-	std::cout << " P ";
+char Pawn::return_type()  {
+	return 'P';
 }

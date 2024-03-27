@@ -9,6 +9,6 @@ bool Tower::is_pos(Cord _now, Cord _new) {
 }
 Tower::Tower(Color kleur, Cord coord) : Piece{ kleur, coord } {};
 
-void Tower::print_type()  {
-	std::cout << " T ";
+char Tower::return_type()  {
+	return 'T';
 }

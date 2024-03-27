@@ -57,9 +57,13 @@ int main() {
 		Cord _now(kolom_van, rij_van);
 		Cord _new(kolom_naar, rij_naar);
 
-		spelbord.play(_now,_new);
-
-		iswhite = !iswhite;
+		bool suc = spelbord.play(_now,_new,iswhite);
+		
+		if (suc) { iswhite = !iswhite; }
+		if (suc) {
+			if (spelbord.won() == 1) { std::cout << "Wit heeft gewonnen"; exit(0); }
+			else if (spelbord.won() == 2) { std::cout << "Zwart heeft gewonnen"; exit(0); }
+		}
 	}
 	return 0;
 }
