@@ -5,7 +5,7 @@
 
 Player::Player(Color color) : _color{ color } {};
 
-void Player::movestuk(Cord _now, Cord _new) {
+void Player::movepiece(Cord _now, Cord _new) {
 	
 
 }

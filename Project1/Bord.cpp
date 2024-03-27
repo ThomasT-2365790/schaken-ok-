@@ -54,6 +54,7 @@ void Bord::printbord()
 	const std::string RED_COLOR = "\033[31m";
 	const std::string GREEN_COLOR = "\033[32m";
 	int tellerrand = 8;
+	std::cout << std::endl;
 	for (int verticaal = 8;verticaal >= 1;--verticaal)
 	{
 		std::cout << tellerrand;
@@ -134,8 +135,7 @@ Color Bord::color_cord(Cord _cord) {
 }
 
 bool Bord::in_bounce(Cord _cord) {
-
-	return true;
+	return (0<=_cord.getrow()<9 && 0 <= _cord.getcolum() < 9);
 	}
 
 void Bord::kill(Cord to_kill) {

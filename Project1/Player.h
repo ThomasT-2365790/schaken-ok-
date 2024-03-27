@@ -5,7 +5,7 @@ class Player {
 
 public:
 	Player(Color _color);
-	void movestuk(Cord _now, Cord _new);//deze functie veranderd/verwijderd enkel (geen controles)
+	void movepiece(Cord _now, Cord _new);
 
 private:
 	Color _color;
