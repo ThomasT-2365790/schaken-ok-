@@ -10,7 +10,7 @@ bool Pawn::is_pos(Cord nu,Cord nieuw) {
 		{
 			if (nu.getrow() == 2)
 			{
-				if (nu.getrow() == nieuw.getrow() - 1 or nu.getrow() == nieuw.getrow() - 2){return true;}
+				if (nu.getrow() == nieuw.getrow() - 1 || nu.getrow() == nieuw.getrow() - 2){return true;}
 			}
 			else if (nu.getrow() == nieuw.getrow() - 1){return true;}
 		}
@@ -18,21 +18,21 @@ bool Pawn::is_pos(Cord nu,Cord nieuw) {
 		{
 			if (nu.getrow() == 7)
 			{
-				if (nu.getrow() == nieuw.getrow() + 1 or nu.getrow() == nieuw.getrow() + 2){return true;}
+				if (nu.getrow() == nieuw.getrow() + 1 || nu.getrow() == nieuw.getrow() + 2){return true;}
 			}
 			else if (nu.getrow() == nieuw.getrow() + 1){return true;}
 		}
 	}
-	else if(nu.getcolum()==nieuw.getcolum()+1 or nu.getcolum()==nieuw.getcolum()-1)//aanval
+	else if(nu.getcolum()==nieuw.getcolum()+1 || nu.getcolum()==nieuw.getcolum()-1)//aanval
 	{
-		if (this->getcolor() == Color::W and nu.getrow()==nieuw.getrow()-1)//W
+		if (this->getcolor() == Color::W && nu.getrow()==nieuw.getrow()-1)//W
 		{
-			if( this->getcolor() == Color::B) { return true; }
+			 return true;
 			
 		}
-		else if (this->getcolor() == Color::B and nu.getrow() == nieuw.getrow() + 1)//B
+		else if (this->getcolor() == Color::B && nu.getrow() == nieuw.getrow() + 1)//B
 		{
-			if (this->getcolor() == Color::W) { return true; }
+			return true;
 		}
 	}
 	return false;//geen mog beweging

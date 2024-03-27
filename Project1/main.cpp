@@ -61,8 +61,8 @@ int main() {
 		
 		if (suc) { iswhite = !iswhite; }
 		if (suc) {
-			if (spelbord.won() == 1) { std::cout << "Wit heeft gewonnen"; exit(0); }
-			else if (spelbord.won() == 2) { std::cout << "Zwart heeft gewonnen"; exit(0); }
+			if (spelbord.won() == 1) { std::cout << "Zwart heeft gewonnen"; exit(0); }
+			else if (spelbord.won() == 2) { std::cout << "Wit heeft gewonnen"; exit(0); }
 		}
 	}
 	return 0;

@@ -9,12 +9,13 @@ class Bord {
 public:
 	Bord();
 	void printbord();
-	void play(Cord now, Cord after);
+	bool play(Cord now, Cord after,bool iswhite);
 	Cord piece_at(Cord _cord);
 	bool compare_cord(Cord one, Cord two);
 	Color color_cord(Cord _cord);
 	bool in_bounce(Cord _cord);
-	void kill(Cord to_kill);
+	bool kill(Cord to_kill,bool iswhite);
+	int won();
 private:
 	std::vector <Piece*> pieces;
 };

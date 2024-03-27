@@ -111,8 +111,10 @@ bool Bord::play(Cord now, Cord after, bool iswhite) {
 					piontomove->movepiece(after);
 					return true;
 				}
-				std::cout << "je valt je eigen kleur aan";
-				return false;
+				else {
+					std::cout << "je valt je eigen kleur aan";
+					return false;
+				}
 			}
 			else {
 				std::cout << "geen mogelijke beweging";
@@ -159,14 +161,15 @@ bool Bord::kill(Cord to_kill,bool iswhite) {
 	for (Piece* _piece : pieces){
 		if (compare_cord(_piece->getcord(), to_kill))
 		{
-			if ((_piece->getcolor() == Color::W && !iswhite) || (_piece->getcolor() == Color::B && iswhite)) {
-				auto to_erase = std::find(pieces.begin(), pieces.end(), _piece);//find zoekt hier voor ons de juiste waarde om te erasen
-				pieces.erase(to_erase);
-				return true;
+			if ((_piece->getcolor() == Color::W && iswhite) || (_piece->getcolor() == Color::B && !iswhite)) {
+				return false;
 			}
+			auto to_erase = std::find(pieces.begin(), pieces.end(), _piece);//find zoekt hier voor ons de juiste waarde om te erasen
+			pieces.erase(to_erase);
+			return true;
 		}
 	}
-	return false;
+	return true;
 }
 
 int Bord::won() {
