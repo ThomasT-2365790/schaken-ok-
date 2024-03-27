@@ -5,6 +5,7 @@
 #include "Bord.h"
 #include "Cord.h"
 #include "Color.h"
+#include "Player.h"
 
 #include "Pawn.h"
 #include "Knight.h"
