@@ -17,8 +17,8 @@
 
 Bord::Bord()
 {
-	for (int index = 0;index < 9;++index){
-		pieces.push_back(new Pawn{ Color::W, Cord(2, index)});
+	for (int index = 0;index < 9;++index) {
+		pieces.push_back(new Pawn{ Color::W, Cord(2, index) });
 		pieces.push_back(new Pawn{ Color::B, Cord(7, index) });
 
 	}
@@ -36,7 +36,7 @@ Bord::Bord()
 	pieces.push_back(new Bishop{ Color::W, Cord(1, 6) });
 	pieces.push_back(new Bishop{ Color::B, Cord(8, 3) });
 	pieces.push_back(new Bishop{ Color::B, Cord(8, 6) });
-	
+
 	pieces.push_back(new King{ Color::W, Cord(1, 5) });
 	pieces.push_back(new King{ Color::B, Cord(8, 5) });
 
@@ -54,6 +54,7 @@ void Bord::printbord()
 	const std::string RED_COLOR = "\033[31m";
 	const std::string GREEN_COLOR = "\033[32m";
 	int tellerrand = 8;
+	std::cout << std::endl;
 	for (int verticaal = 8;verticaal >= 1;--verticaal)
 	{
 		std::cout << tellerrand;
@@ -71,20 +72,20 @@ void Bord::printbord()
 						if (_piece->getcolor() == Color::W)
 						{
 							std::cout << GREEN_COLOR;
-							_piece->print_type();
+							std::cout<<" "<<_piece->return_type()<<" ";
 							std::cout << RESET_COLOR;
 						}
 						else
 						{
 							std::cout << RED_COLOR;
-							_piece->print_type();
+							std::cout << " " << _piece->return_type() << " ";
 							std::cout << RESET_COLOR;
 						}
 
 						break;
 					}
 				}
-				
+
 			}
 		std::cout << std::endl;
 	}
@@ -95,12 +96,30 @@ void Bord::printbord()
 
 
 
-void Bord::play(Cord now, Cord after) {
+bool Bord::play(Cord now, Cord after, bool iswhite) {
 
 	for (Piece* piontomove : pieces)
 	{
 		if (compare_cord(now, piontomove->getcord())) {
-			piontomove->movepiece(after);
+			if (((piontomove->getcolor() == Color::W) && !iswhite)||(piontomove->getcolor()==Color::B && iswhite)){
+				std::cout << "pion is niet van de juiste kleur";
+				return false;
+			}
+			else if (piontomove->is_pos(now, after)) {
+				bool gel = this->kill(after,iswhite);//altijd killen moest er iemand staan mag die weg
+				if (gel) {
+					piontomove->movepiece(after);
+					return true;
+				}
+				else {
+					std::cout << "je valt je eigen kleur aan";
+					return false;
+				}
+			}
+			else {
+				std::cout << "geen mogelijke beweging";
+				return false;
+			}
 		}
 	}
 }
@@ -134,19 +153,35 @@ Color Bord::color_cord(Cord _cord) {
 }
 
 bool Bord::in_bounce(Cord _cord) {
-
-	return true;
+	return (0<=_cord.getrow()<9 && 0 <= _cord.getcolum() < 9);
 	}
 
-void Bord::kill(Cord to_kill) {
+bool Bord::kill(Cord to_kill,bool iswhite) {
 	int tellerw = 0;
 	for (Piece* _piece : pieces){
 		if (compare_cord(_piece->getcord(), to_kill))
 		{
+			if ((_piece->getcolor() == Color::W && iswhite) || (_piece->getcolor() == Color::B && !iswhite)) {
+				return false;
+			}
 			auto to_erase = std::find(pieces.begin(), pieces.end(), _piece);//find zoekt hier voor ons de juiste waarde om te erasen
 			pieces.erase(to_erase);
-			break;
+			return true;
 		}
 	}
+	return true;
 }
 
+int Bord::won() {
+	bool white = true,black = true;
+	for (Piece* piontocheck : pieces) {
+		char what = piontocheck->return_type();
+		if (what == 'K') {
+			if (piontocheck->getcolor() == Color::W) { white = false; }
+			else{ black = false; }
+		}
+	}
+	if (black == false && white == true) { return 1; }
+	else if (black == true && white == false) { return 2; }
+	return 0;
+}
