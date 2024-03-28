@@ -4,13 +4,18 @@
 #include <string.h>
 #include "Human.h"
 #include "Bot.h"
+#include "Cord.h"
 
-
-int char_to_int(char a) {
-	int b =tolower(a);
-	return (b-96);
+std::string to_lower(std::string mode) {
+	std::string solution{};
+	for (char letter : mode) {
+		if (letter < 'Z' - 1) {
+			letter = tolower(letter);
+		}
+		solution += letter;
+	}
+	return solution;
 }
-
 
 int main() {
 	Bord spelbord;
@@ -28,12 +33,12 @@ int main() {
 		std::string gamemode;
 		std::cout << "PvP or PvE\n";
 		std::cin >> gamemode;
-
-		if (gamemode == "PvP") {
+		gamemode = to_lower(gamemode);
+		if (gamemode == "pvp") {
 			spelbord.setplayer2(&_player2_human);
 			correcteingave = true;
 		}
-		else if (gamemode=="PvE") {
+		else if (gamemode=="pve") {
 			spelbord.setplayer2(&_player2_bot);
 			correcteingave = true;
 		}
@@ -44,8 +49,6 @@ int main() {
 	while (true) {
 		spelbord.printbord();
 
-		char rij_van_char, rij_naar_char;
-		int kolom_van, kolom_naar;
 		if (iswhite) {
 			std::cout << "White aan zet, wat wil je doen?\n";
 			player=spelbord.getplayer1();
@@ -54,13 +57,9 @@ int main() {
 			std::cout << "Black aan zet, wat wil je doen?\n";
 			player =spelbord.getplayer2();
 		}
-		std::cin >> rij_van_char >> kolom_van >> rij_naar_char >> kolom_naar;
-		int rij_van = char_to_int(rij_van_char);
-		int rij_naar = char_to_int(rij_naar_char);
-		Cord _now(kolom_van, rij_van);
-		Cord _new(kolom_naar, rij_naar);
+		std::tuple<Cord, Cord> ingave = player->give_move();
 
-		bool suc = spelbord.play(_now,_new,iswhite);
+		bool suc = spelbord.play(std::get<0>(ingave), std::get<1>(ingave), iswhite);
 		
 		if (suc) { iswhite = !iswhite; }
 		if (suc) {

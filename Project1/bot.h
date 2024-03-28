@@ -4,7 +4,7 @@ class Bot : public Player {
 
 public:
 	Bot(Color color);
-	bool automove();
+	std::tuple<Cord,Cord> give_move() override;
 
 private:
 
