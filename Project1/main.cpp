@@ -54,7 +54,7 @@ int main() {
 		else {
 			std::cout << "Black aan zet, wat wil je doen?\n";
 			Player* player =player2;
-		}
+		} 
 		std::cin >> rij_van_char >> kolom_van >> rij_naar_char >> kolom_naar;
 		int rij_van = char_to_int(rij_van_char);
 		int rij_naar = char_to_int(rij_naar_char);
