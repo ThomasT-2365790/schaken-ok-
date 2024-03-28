@@ -13,7 +13,6 @@
 #include "Tower.h"
 #include "Bishop.h"
 #include "King.h"
-#
 
 
 Bord::Bord()
@@ -124,6 +123,7 @@ bool Bord::play(Cord now, Cord after, bool iswhite) {
 			}
 		}
 	}
+	return false;
 }
 
 
@@ -143,15 +143,6 @@ bool Bord::compare_cord(Cord one, Cord two) {
 		return true;
 	}
 	return false;
-}
-
-Color Bord::color_cord(Cord _cord) {
-	for (Piece* _piece : pieces) {
-		if (compare_cord(_piece->getcord(), _cord)) {
-			return Color::W; // Coördinaat gevonden
-		}
-
-	}
 }
 
 bool Bord::in_bounce(Cord _cord) {
@@ -189,12 +180,12 @@ int Bord::won() {
 	else if (black == true && white == false) { return 2; }
 	return 0;
 }
-void Bord::setplayer1(Player* a) {
-	player1 = a;
+void Bord::setplayer1(Player* _player) {
+	player1 = _player;
 }
 
-void Bord::setplayer2(Player* b) {
-	player2 = b;
+void Bord::setplayer2(Player* _player) {
+	player2 = _player;
 }
 Player* Bord::getplayer1() {
 	return player1;

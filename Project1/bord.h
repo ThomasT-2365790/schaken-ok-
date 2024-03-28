@@ -13,13 +13,12 @@ public:
 	bool play(Cord now, Cord after,bool iswhite);
 	Cord piece_at(Cord _cord);
 	bool compare_cord(Cord one, Cord two);
-	Color color_cord(Cord _cord);
 	bool in_bounce(Cord _cord);
 	bool kill(Cord to_kill,bool iswhite);
 	int won();
 
-	void setplayer1(Player* a);
-	void setplayer2(Player* b);
+	void setplayer1(Player* _player);
+	void setplayer2(Player* _player);
 	Player* getplayer1();
 	Player* getplayer2();
 private:
