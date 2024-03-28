@@ -98,7 +98,8 @@ void Bord::printbord()
 
 
 bool Bord::play(Cord now, Cord after, bool iswhite) {
-
+	if (!in_bounce(now)) { std::cout << "De plek waar hij staat is niet in bord";return false; }
+	if (!in_bounce(after)) { std::cout << "De plek waar hij naartoe wil verplaatsen is niet in bord";return false; }
 	for (Piece* piontomove : pieces)
 	{
 		if (compare_cord(now, piontomove->getcord())) {
@@ -154,7 +155,9 @@ Color Bord::color_cord(Cord _cord) {
 }
 
 bool Bord::in_bounce(Cord _cord) {
-	return (0<=_cord.getrow()<9 && 0 <= _cord.getcolum() < 9);
+	if (_cord.getcolum() > 8 || _cord.getcolum() < 0) { return false; }
+	if (_cord.getrow() > 8 || _cord.getrow() < 0) { return false; }
+	return true;
 	}
 
 bool Bord::kill(Cord to_kill,bool iswhite) {
