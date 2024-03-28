@@ -8,43 +8,40 @@
 
 int char_to_int(char a) {
 	int b =tolower(a);
-	b = b - 96;
-	return (b);
-
+	return (b-96);
 }
 
 
 int main() {
 	Bord spelbord;
-	bool correcteingave = false;
-	Player* player;
-	Player* player1;
-	Player* player2;
 
-		std::string gamemode;
-		std::cout << "PvP or PvE\n";
-		std::cin >> gamemode;
-	
-		if (gamemode == "PvP") {
-			Human _player1(Color::W);
-			Human _player2(Color::B);
-			player1 = &_player1;
-			player2 = &_player2;
-			correcteingave = true;
-		}
-		else if (gamemode == "PvE") {
-			Human _player1(Color::W);
-			Bot _player2(Color::B);
-			player1 = &_player1;
-			player2 = &_player2;
-			correcteingave = true;
-		}
-		else
-		{
-			std::cout << "geen mogelijke keuze";
-		}
+	bool correcteingave = false;
+
+	Player* player=nullptr;
+	Player* player1=nullptr;
+	Player* player2=nullptr;
+
+	while (!correcteingave) {
+	std::string gamemode;
+	std::cout << "PvP or PvE\n";
+	std::cin >> gamemode;
+
+	Human _player1(Color::W);
+	player1 = &_player1;
+
+	if (gamemode == "PvP") {
+		Human _player2(Color::B);
+		player2 = &_player2;
+		correcteingave = true;
+	}
+	else if (gamemode=="PvE") {
+		Bot _player2(Color::B);
+		player2 = &_player2;
+		correcteingave = true;
+	}
+	else { std::cout << "geen mogelijke ingave, probeer opnieuw\n"; }
+	}
 	bool iswhite = true;
-	
 	while (true) {
 		spelbord.printbord();
 
@@ -52,11 +49,11 @@ int main() {
 		int kolom_van, kolom_naar;
 		if (iswhite) {
 			std::cout << "White aan zet, wat wil je doen?\n";
-			player=player1;
+			Player* player=player1;
 		}
 		else {
 			std::cout << "Black aan zet, wat wil je doen?\n";
-			player =player2;
+			Player* player =player2;
 		}
 		std::cin >> rij_van_char >> kolom_van >> rij_naar_char >> kolom_naar;
 		int rij_van = char_to_int(rij_van_char);
