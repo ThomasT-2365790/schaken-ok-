@@ -18,30 +18,30 @@
 Bord::Bord()
 {
 	for (int index = 0;index < 9;++index) {
-		pieces.push_back(new Pawn{ Color::W, Cord(2, index) });
-		pieces.push_back(new Pawn{ Color::B, Cord(7, index) });
+		pieces.push_back(new Pawn{ Color::W, Cord(2, index),this });
+		pieces.push_back(new Pawn{ Color::B, Cord(7, index),this });
 
 	}
-	pieces.push_back(new Knight{ Color::W, Cord(1, 2) });
-	pieces.push_back(new Knight{ Color::W, Cord(1, 7) });
-	pieces.push_back(new Knight{ Color::B, Cord(8, 2) });
-	pieces.push_back(new Knight{ Color::B, Cord(8, 7) });
+	pieces.push_back(new Knight{ Color::W, Cord(1, 2),this });
+	pieces.push_back(new Knight{ Color::W, Cord(1, 7),this });
+	pieces.push_back(new Knight{ Color::B, Cord(8, 2),this });
+	pieces.push_back(new Knight{ Color::B, Cord(8, 7),this });
 
-	pieces.push_back(new Tower{ Color::W, Cord(1, 1) });
-	pieces.push_back(new Tower{ Color::W, Cord(1, 8) });
-	pieces.push_back(new Tower{ Color::B, Cord(8, 1) });
-	pieces.push_back(new Tower{ Color::B, Cord(8, 8) });
+	pieces.push_back(new Tower{ Color::W, Cord(1, 1),this });
+	pieces.push_back(new Tower{ Color::W, Cord(1, 8),this });
+	pieces.push_back(new Tower{ Color::B, Cord(8, 1),this });
+	pieces.push_back(new Tower{ Color::B, Cord(8, 8),this });
 
-	pieces.push_back(new Bishop{ Color::W, Cord(1, 3) });
-	pieces.push_back(new Bishop{ Color::W, Cord(1, 6) });
-	pieces.push_back(new Bishop{ Color::B, Cord(8, 3) });
-	pieces.push_back(new Bishop{ Color::B, Cord(8, 6) });
+	pieces.push_back(new Bishop{ Color::W, Cord(1, 3),this });
+	pieces.push_back(new Bishop{ Color::W, Cord(1, 6),this });
+	pieces.push_back(new Bishop{ Color::B, Cord(8, 3),this });
+	pieces.push_back(new Bishop{ Color::B, Cord(8, 6),this });
 
-	pieces.push_back(new King{ Color::W, Cord(1, 5) });
-	pieces.push_back(new King{ Color::B, Cord(8, 5) });
+	pieces.push_back(new King{ Color::W, Cord(1, 5),this });
+	pieces.push_back(new King{ Color::B, Cord(8, 5),this });
 
-	pieces.push_back(new Queen{ Color::W, Cord(1, 4) });
-	pieces.push_back(new Queen{ Color::B, Cord(8, 4) });
+	pieces.push_back(new Queen{ Color::W, Cord(1, 4),this });
+	pieces.push_back(new Queen{ Color::B, Cord(8, 4),this });
 
 
 }
@@ -125,6 +125,7 @@ bool Bord::play(Cord now, Cord after, bool iswhite) {
 	}
 	return false;
 }
+
 
 
 

@@ -10,7 +10,7 @@ bool King::is_pos(Cord _now, Cord _new) {
 	}
 	return false;
 }
-King::King(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+King::King(Color kleur, Cord coord, Bord* spelbord) : Piece{ kleur, coord,spelbord } {};
 
 char King::return_type()  {
 	return 'K';

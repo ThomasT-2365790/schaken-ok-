@@ -60,7 +60,8 @@ int main() {
 		std::tuple<Cord, Cord> ingave = player->give_move();
 
 		bool suc = spelbord.play(std::get<0>(ingave), std::get<1>(ingave), iswhite);
-		
+	
+
 		if (suc) { iswhite = !iswhite; }
 		if (suc) {
 			if (spelbord.won() == 1) { std::cout << "Zwart heeft gewonnen"; exit(0); }

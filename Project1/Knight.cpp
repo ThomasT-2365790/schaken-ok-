@@ -10,7 +10,7 @@ bool Knight::is_pos(Cord _now, Cord _new) {
 	}
 	return false;
 }
-Knight::Knight(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+Knight::Knight(Color kleur, Cord coord, Bord* spelbord) : Piece{ kleur, coord,spelbord } {};
 
 char Knight::return_type()  {
 	return 'k';

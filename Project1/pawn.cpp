@@ -38,8 +38,9 @@ bool Pawn::is_pos(Cord nu,Cord nieuw) {
 	return false;//geen mog beweging
 
 }
-Pawn::Pawn(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+Pawn::Pawn(Color kleur, Cord coord,Bord* spelbord) : Piece{ kleur, coord,spelbord } {};
 
 char Pawn::return_type()  {
 	return 'P';
 }
+

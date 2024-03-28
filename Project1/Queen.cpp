@@ -12,7 +12,7 @@ bool Queen::is_pos(Cord _now, Cord _new) {
 	}
 	return false;
 }
-Queen::Queen(Color kleur, Cord coord) : Piece{ kleur, coord } {};
+Queen::Queen(Color kleur, Cord coord,Bord* spelbord) : Piece{ kleur, coord,spelbord } {};
 
 char Queen::return_type()  {
 	return 'Q';
