@@ -3,6 +3,7 @@
 #include "Piece.h"
 #include "Cord.h"
 #include "Color.h"
+#include "Player.h"
 
 class Bord {
 	
@@ -16,6 +17,13 @@ public:
 	bool in_bounce(Cord _cord);
 	bool kill(Cord to_kill,bool iswhite);
 	int won();
+
+	void setplayer1(Player* a);
+	void setplayer2(Player* b);
+	Player* getplayer1();
+	Player* getplayer2();
 private:
 	std::vector <Piece*> pieces;
+	Player* player1;
+	Player* player2;
 };

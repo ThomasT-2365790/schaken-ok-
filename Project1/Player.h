@@ -1,6 +1,6 @@
 #pragma once
 #include "Cord.h"
-#include "Bord.h"
+#include "Color.h"
 class Player {
 
 public:

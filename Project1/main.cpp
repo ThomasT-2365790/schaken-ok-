@@ -18,29 +18,28 @@ int main() {
 	bool correcteingave = false;
 
 	Player* player=nullptr;
-	Player* player1=nullptr;
-	Player* player2=nullptr;
+	Human _player1(Color::W);
+	spelbord.setplayer1(&_player1);
+	Human _player2_human(Color::B);
+	Bot _player2_bot(Color::B);
+
 
 	while (!correcteingave) {
-	std::string gamemode;
-	std::cout << "PvP or PvE\n";
-	std::cin >> gamemode;
+		std::string gamemode;
+		std::cout << "PvP or PvE\n";
+		std::cin >> gamemode;
 
-	Human _player1(Color::W);
-	player1 = &_player1;
+		if (gamemode == "PvP") {
+			spelbord.setplayer2(&_player2_human);
+			correcteingave = true;
+		}
+		else if (gamemode=="PvE") {
+			spelbord.setplayer2(&_player2_bot);
+			correcteingave = true;
+		}
+		else { std::cout << "geen mogelijke ingave, probeer opnieuw\n"; }
+	}
 
-	if (gamemode == "PvP") {
-		Human _player2(Color::B);
-		player2 = &_player2;
-		correcteingave = true;
-	}
-	else if (gamemode=="PvE") {
-		Bot _player2(Color::B);
-		player2 = &_player2;
-		correcteingave = true;
-	}
-	else { std::cout << "geen mogelijke ingave, probeer opnieuw\n"; }
-	}
 	bool iswhite = true;
 	while (true) {
 		spelbord.printbord();
@@ -49,11 +48,11 @@ int main() {
 		int kolom_van, kolom_naar;
 		if (iswhite) {
 			std::cout << "White aan zet, wat wil je doen?\n";
-			Player* player=player1;
+			player=spelbord.getplayer1();
 		}
 		else {
 			std::cout << "Black aan zet, wat wil je doen?\n";
-			Player* player =player2;
+			player =spelbord.getplayer2();
 		}
 		std::cin >> rij_van_char >> kolom_van >> rij_naar_char >> kolom_naar;
 		int rij_van = char_to_int(rij_van_char);

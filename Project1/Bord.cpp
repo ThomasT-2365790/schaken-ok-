@@ -186,3 +186,16 @@ int Bord::won() {
 	else if (black == true && white == false) { return 2; }
 	return 0;
 }
+void Bord::setplayer1(Player* a) {
+	player1 = a;
+}
+
+void Bord::setplayer2(Player* b) {
+	player2 = b;
+}
+Player* Bord::getplayer1() {
+	return player1;
+}
+Player* Bord::getplayer2() {
+	return player2;
+}
