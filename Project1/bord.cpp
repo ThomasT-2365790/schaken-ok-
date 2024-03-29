@@ -1,11 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 #include "Bord.h"
 #include "Cord.h"
 #include "Color.h"
 #include "Player.h"
+#include "Piece.h"
 
 #include "Pawn.h"
 #include "Knight.h"
@@ -15,9 +18,10 @@
 #include "King.h"
 
 
+
 Bord::Bord()
 {
-	for (int index = 0;index < 9;++index) {
+	for (int index = 1;index < 9;++index) {
 		pieces.push_back(new Pawn{ Color::W, Cord(2, index),this });
 		pieces.push_back(new Pawn{ Color::B, Cord(7, index),this });
 
@@ -206,6 +210,7 @@ int Bord::won() {
 }
 void Bord::setplayer1(Player* _player) {
 	player1 = _player;
+
 }
 
 void Bord::setplayer2(Player* _player) {
@@ -216,4 +221,18 @@ Player* Bord::getplayer1() {
 }
 Player* Bord::getplayer2() {
 	return player2;
+}
+Cord Bord::give_piece() {
+	srand(time(0));
+	bool found = false;
+	Piece* opl=nullptr;
+	while (!found) {
+		int groote =pieces.size();
+		auto random = (rand() % groote);
+		opl= pieces[random];
+		if (opl->getcolor() == Color::B) {
+			found = true;
+		}
+	}
+	return opl->getcord();
 }

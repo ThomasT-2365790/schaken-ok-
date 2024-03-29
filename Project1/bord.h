@@ -16,6 +16,7 @@ public:
 	bool compare_cord(Cord one, Cord two);
 	bool in_bounce(Cord _cord);
 	bool kill(Cord to_kill,bool iswhite);
+	Cord give_piece();
 	int won();
 
 	void setplayer1(Player* _player);

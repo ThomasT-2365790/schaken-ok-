@@ -2,8 +2,9 @@
 #include <iostream>
 #include <tuple>
 #include "Cord.h"
+#include "Bord.h"
 
-Human::Human(Color kleur) :Player{ kleur } {};
+Human::Human(Color kleur,Bord* _bord) :Player{ kleur,_bord } {};
 
 
 int char_to_int(char a) {

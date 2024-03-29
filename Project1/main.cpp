@@ -23,10 +23,10 @@ int main() {
 	bool correcteingave = false;
 
 	Player* player=nullptr;
-	Human _player1(Color::W);
+	Human _player1(Color::W,&spelbord);
 	spelbord.setplayer1(&_player1);
-	Human _player2_human(Color::B);
-	Bot _player2_bot(Color::B);
+	Human _player2_human(Color::B,&spelbord);
+	Bot _player2_bot(Color::B,&spelbord);
 
 
 	while (!correcteingave) {
