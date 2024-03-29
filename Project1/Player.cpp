@@ -10,3 +10,7 @@ std::tuple<Cord,Cord> Player::give_move() {
 	std::tuple<Cord, Cord> ingave{ Cord{0,0},Cord{0,0} };
 	return ingave;
 }
+
+char Player::give_gender() {
+	return ' ';
+}

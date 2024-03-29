@@ -26,3 +26,7 @@ std::tuple<Cord,Cord> Human::give_move() {
 	std::tuple<Cord, Cord> inputtuple{ _now,_new };
 	return inputtuple;
 }
+
+char Human::give_gender() {
+	return 'H';
+}

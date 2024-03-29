@@ -57,11 +57,25 @@ int main() {
 			std::cout << "Black aan zet, wat wil je doen?\n";
 			player =spelbord.getplayer2();
 		}
-		std::tuple<Cord, Cord> ingave = player->give_move();
+		char gender = player->give_gender();
+		bool suc;
+		if (gender == 'H') {
+			std::tuple<Cord, Cord> ingave = player->give_move();
+			suc = spelbord.play_human(std::get<0>(ingave), std::get<1>(ingave), iswhite);
+		}
+		else {//Bot
+			bool ready = false;
+			int teller = 0;
+			while(!ready) {
+				std::tuple<Cord, Cord> ingave = player->give_move();
+				ready = spelbord.play_bot(std::get<0>(ingave), std::get<1>(ingave), iswhite);
+				++teller;
 
-		bool suc = spelbord.play(std::get<0>(ingave), std::get<1>(ingave), iswhite);
-	
-
+			}
+			suc = true;
+			std::cout << teller<<std::endl;
+		}
+		
 		if (suc) { iswhite = !iswhite; }
 		if (suc) {
 			if (spelbord.won() == 1) { std::cout << "Zwart heeft gewonnen"; exit(0); }

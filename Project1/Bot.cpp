@@ -2,11 +2,18 @@
 #include "Color.h"
 #include "Player.h"
 #include <tuple>
+#include <cstdlib>
+#include <ctime>
 
 Bot::Bot(Color color) : Player{ color } {};
 
 
 std::tuple<Cord, Cord> Bot::give_move() {
-	std::tuple<Cord, Cord> ingave{ Cord{0,0},Cord{0,0} };
+	srand(time(0));
+	std::tuple<Cord, Cord> ingave{ Cord{rand() % 8 + 1,rand() % 8 + 1},Cord{rand() % 8 + 1,rand() % 8 + 1} };
 	return ingave;
+}
+
+char Bot::give_gender() {
+	return 'B';
 }

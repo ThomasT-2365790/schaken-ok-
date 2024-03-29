@@ -96,7 +96,7 @@ void Bord::printbord()
 
 
 
-bool Bord::play(Cord now, Cord after, bool iswhite) {
+bool Bord::play_human(Cord now, Cord after, bool iswhite) {
 	if (!in_bounce(now)) { std::cout << "De plek waar hij staat is niet in bord";return false; }
 	if (!in_bounce(after)) { std::cout << "De plek waar hij naartoe wil verplaatsen is niet in bord";return false; }
 	for (Piece* piontomove : pieces)
@@ -119,6 +119,32 @@ bool Bord::play(Cord now, Cord after, bool iswhite) {
 			}
 			else {
 				std::cout << "geen mogelijke beweging";
+				return false;
+			}
+		}
+	}
+	return false;
+}
+bool Bord::play_bot(Cord now, Cord after, bool iswhite) {
+	if (!in_bounce(now)) {return false; }
+	if (!in_bounce(after)) {return false; }
+	for (Piece* piontomove : pieces)
+	{
+		if (compare_cord(now, piontomove->getcord())) {
+			if (((piontomove->getcolor() == Color::W) && !iswhite) || (piontomove->getcolor() == Color::B && iswhite)) {
+				return false;
+			}
+			else if (piontomove->is_pos(now, after)) {
+				bool gel = this->kill(after, iswhite);//altijd killen moest er iemand staan mag die weg
+				if (gel) {
+					piontomove->movepiece(after);
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			else {
 				return false;
 			}
 		}

@@ -10,7 +10,8 @@ class Bord {
 public:
 	Bord();
 	void printbord();
-	bool play(Cord now, Cord after,bool iswhite);
+	bool play_human(Cord now, Cord after,bool iswhite);
+	bool play_bot(Cord now, Cord after, bool iswhite);
 	Cord piece_at(Cord _cord);
 	bool compare_cord(Cord one, Cord two);
 	bool in_bounce(Cord _cord);
