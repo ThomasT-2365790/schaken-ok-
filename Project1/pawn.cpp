@@ -27,12 +27,12 @@ bool Pawn::is_pos(Cord nu,Cord nieuw) {
 	{
 		if (this->getcolor() == Color::W && nu.getrow()==nieuw.getrow()-1)//W
 		{
-			 return true;
+			if (is_piece_at(nieuw)) { return true; }
 			
 		}
 		else if (this->getcolor() == Color::B && nu.getrow() == nieuw.getrow() + 1)//B
 		{
-			return true;
+			if (is_piece_at(nieuw)) { return true; }
 		}
 	}
 	return false;//geen mog beweging
