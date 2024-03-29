@@ -126,9 +126,6 @@ bool Bord::play(Cord now, Cord after, bool iswhite) {
 	return false;
 }
 
-
-
-
 Cord Bord::piece_at(Cord _cord) {
 	for (Piece* _piece : pieces) {
 		if (compare_cord(_piece->getcord(), _cord)) {
