@@ -43,7 +43,7 @@ bool Queen::between_colum(Cord _now, Cord _new) {
 std::string Queen::to_where(Cord _now, Cord _new) {
 	if (_now.getrow() > _new.getrow() && _now.getcolum() > _new.getcolum()) { return std::string{ "leftunder" }; }
 	else if (_now.getrow() > _new.getrow() && _now.getcolum() < _new.getcolum()) { return std::string{ "rightunder" }; }
-	else if (_now.getrow() < _new.getrow() && _now.getcolum() > _new.getcolum()) { return std::string{ "lefttupper" }; }
+	else if (_now.getrow() < _new.getrow() && _now.getcolum() > _new.getcolum()) { return std::string{ "leftupper" }; }
 	else if (_now.getrow() < _new.getrow() && _now.getcolum() < _new.getcolum()) { return std::string{ "rightupper" }; }
 	else { return std::string{ "kan sowieso niet, loopt mis bij dif==dif" }; }
 }
